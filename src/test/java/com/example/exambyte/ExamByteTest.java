@@ -1,10 +1,9 @@
 package com.example.exambyte;
 
-import com.example.exambyte.controller.ExamByte;
-import com.example.exambyte.srevice.TestService;
+import com.example.exambyte.helper.WithMockOAuth2User;
+import com.example.exambyte.service.TestService;
 import com.example.exambyte.users.Role;
 import com.example.exambyte.users.User;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -13,20 +12,11 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
-import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
-import org.thymeleaf.spring6.expression.Mvc;
-
-import javax.swing.*;
 
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.InstanceOfAssertFactories.LIST;
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -43,6 +33,7 @@ class ExamByteTest {
 
 
     @Test
+    @Disabled
     @DisplayName("Die Startseite ist unter / erreichbar")
     void load() throws Exception {
         MockHttpServletRequestBuilder requestBuilder = get("/");
@@ -58,7 +49,9 @@ class ExamByteTest {
 
 
 
+
     @Test
+    @WithMockOAuth2User
     @DisplayName("Die Startseite ist für get request Erreichbar")
     void test01() throws Exception{
         mvc.perform(get("/"))
@@ -138,23 +131,23 @@ class ExamByteTest {
     }
 
     @Test
-    @DisplayName("Die /aufgabe ist für get request erreichbar")
+    @DisplayName("Die /addAufgabe ist für get request erreichbar")
     void test11() throws Exception{
-        mvc.perform(get("/aufgabe"))
+        mvc.perform(get("/addAufgabe"))
                 .andExpect(status().isOk());
     }
 
     @Test
-    @DisplayName("Die /aufgabe ist für get request zeigt aufgaben an ")
+    @DisplayName("Die /addAufgabe ist für get request zeigt aufgaben an ")
     void test12() throws Exception{
-        mvc.perform(get("/aufgabe"))
-                .andExpect(view().name("aufgabe"));
+        mvc.perform(get("/addAufgabe"))
+                .andExpect(view().name("addAufgabe"));
     }
 
     @Test
     @DisplayName("Die /aufgabe ist für get request zeigt aufgaben an ")
     void test13() throws Exception{
-        mvc.perform(get("/aufgabe"))
+        mvc.perform(get("/addAufgabe"))
                 .andExpect(model().attribute("aufgabe", testService.getAufgaben()));
     }
 

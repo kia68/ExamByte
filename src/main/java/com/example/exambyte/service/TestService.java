@@ -1,4 +1,4 @@
-package com.example.exambyte.srevice;
+package com.example.exambyte.service;
 
 import com.example.exambyte.repositories.AufgabenRepo;
 import com.example.exambyte.repositories.TestRepo;
@@ -8,7 +8,6 @@ import com.example.exambyte.test.Test;
 import com.example.exambyte.users.User;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service

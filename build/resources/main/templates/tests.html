@@ -33,7 +33,7 @@
         </div>
     </div>
 </nav>
-
+<div class="container mt-5">
 
 <a href="/addTest">Hier klicken, um einen Test hinzuzufügen</a>
 
@@ -55,7 +55,7 @@
             <td>
                 <span th:text="${test.getAufgabens()}"> Example Aufgabe Number </span>
             </td>
-            <td><a href="/aufgabe">Zu den Tests</a></td>
+            <td><a href="/addAufgabe">Zu den Tests</a></td>
             <td>
                 <form>
                     <button type="submit" class="btn btn-primary"> Löschen</button>
@@ -106,6 +106,7 @@
     Some success message
 </div>
 
+</div>
 </div>
 </body>
 </html>

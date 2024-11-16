@@ -1,9 +1,7 @@
 package com.example.exambyte.controller;
 
 import com.example.exambyte.Email;
-import com.example.exambyte.srevice.TestService;
-import com.example.exambyte.test.Aufgaben;
-import com.example.exambyte.test.MultipleChoiceAufgabe;
+import com.example.exambyte.service.TestService;
 import com.example.exambyte.test.Test;
 import com.example.exambyte.users.Role;
 import com.example.exambyte.users.User;
@@ -12,7 +10,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Controller
 public class ExamByte {
@@ -29,6 +26,11 @@ public class ExamByte {
         model.addAttribute("user", testService.userList());
         return "home";
     }
+    @GetMapping("/tests")
+    public String tests(Model model){
+        model.addAttribute("tests", testService.getTests());
+        return "tests";
+    }
 
     @PostMapping
     public String register(Email email, Role role, String action){
@@ -41,17 +43,11 @@ public class ExamByte {
         return "redirect:/";
     }
 
-    @GetMapping("/tests")
-    public String tests(Model model){
-        model.addAttribute("tests", testService.getTests());
-        System.out.println("get Tests done");
-        return "tests";
-    }
 
-    @GetMapping("/aufgabe")
+    @GetMapping("/addAufgabe")
     public String aufgabe(Model model){
         model.addAttribute("aufgabe", testService.getTests());
-        return "aufgabe";
+        return "addAufgabe";
     }
 
 //    @PostMapping("/create")

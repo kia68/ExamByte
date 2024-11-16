@@ -1,4 +1,4 @@
-package com.example.exambyte.srevice;
+package com.example.exambyte.service;
 
 import com.example.exambyte.users.User;
 import org.springframework.stereotype.Service;
