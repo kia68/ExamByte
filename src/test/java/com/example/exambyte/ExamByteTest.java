@@ -1,10 +1,9 @@
 package com.example.exambyte;
 
+import com.example.exambyte.domainLayer.model.Email;
 import com.example.exambyte.helper.WithMockOAuth2User;
-import com.example.exambyte.service.TestService;
-import com.example.exambyte.users.Role;
-import com.example.exambyte.users.User;
-import org.junit.jupiter.api.Disabled;
+import com.example.exambyte.applicationService.TestService;
+import com.example.exambyte.domainLayer.model.User;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,8 +32,7 @@ class ExamByteTest {
 
 
     @Test
-    @Disabled
-    @DisplayName("Die Startseite ist unter / erreichbar")
+    @WithMockOAuth2User    @DisplayName("Die Startseite ist unter / erreichbar")
     void load() throws Exception {
         MockHttpServletRequestBuilder requestBuilder = get("/");
         MvcResult resultActions = mvc.perform(requestBuilder)
@@ -59,6 +57,7 @@ class ExamByteTest {
     }
 
     @Test
+    @WithMockOAuth2User
     @DisplayName("Die Startseite ist für get request zeigt home an")
     void test02() throws Exception{
         mvc.perform(get("/"))
@@ -66,6 +65,7 @@ class ExamByteTest {
     }
 
     @Test
+    @WithMockOAuth2User
     @DisplayName("Beim Get Request auf / enthält Model userList")
     void test03() throws Exception{
         mvc.perform(get("/"))
@@ -73,6 +73,7 @@ class ExamByteTest {
     }
 
     @Test
+    @WithMockOAuth2User
     @DisplayName("Die /test seite ist für get request erreichbar")
     void test04() throws Exception{
         mvc.perform(get("/tests"))
@@ -80,6 +81,7 @@ class ExamByteTest {
     }
 
     @Test
+    @WithMockOAuth2User
     @DisplayName("Die /test seite ist für get request zeigt tests an")
     void test05() throws Exception{
         mvc.perform(get("/tests"))
@@ -87,6 +89,7 @@ class ExamByteTest {
     }
 
     @Test
+    @WithMockOAuth2User
     @DisplayName("beim get request auf /tests enthäht model testList")
     void test06() throws Exception{
         mvc.perform(get("/tests"))
@@ -94,6 +97,7 @@ class ExamByteTest {
     }
 
     @Test
+    @WithMockOAuth2User
     @DisplayName("Route redirect:/ ist für post Requests erreichbar")
     void test07() throws Exception{
         mvc.perform(post("/"))
@@ -101,6 +105,7 @@ class ExamByteTest {
     }
 
     @Test
+    @WithMockOAuth2User
     @DisplayName("Ohne Übergabe-Parameter wird :/ View angezeigt")
     void test08() throws Exception{
         mvc.perform(post("/"))
@@ -108,6 +113,7 @@ class ExamByteTest {
     }
 
     @Test
+    @WithMockOAuth2User
     @DisplayName("mit Übergabe-Parameter wird :/ View angezeigt")
     void test09() throws Exception{
         mvc.perform(post("/")
@@ -117,11 +123,11 @@ class ExamByteTest {
     }
 
     @Test
+    @WithMockOAuth2User
     @DisplayName("mit Übergabe-Parameter wird es ins model hinzugefügt")
     void test10() throws Exception{
         Email email = new Email("test@aa.com");
-        Role role = new Role("student");
-        User user = new User(email, role);
+        User user = new User(email);
         List mock = mock(List.class);
         when(testService.userList()).thenReturn(mock);
         mvc.perform(post("/")
@@ -131,6 +137,7 @@ class ExamByteTest {
     }
 
     @Test
+    @WithMockOAuth2User
     @DisplayName("Die /addAufgabe ist für get request erreichbar")
     void test11() throws Exception{
         mvc.perform(get("/addAufgabe"))
@@ -138,6 +145,7 @@ class ExamByteTest {
     }
 
     @Test
+    @WithMockOAuth2User
     @DisplayName("Die /addAufgabe ist für get request zeigt aufgaben an ")
     void test12() throws Exception{
         mvc.perform(get("/addAufgabe"))
@@ -145,6 +153,7 @@ class ExamByteTest {
     }
 
     @Test
+    @WithMockOAuth2User
     @DisplayName("Die /aufgabe ist für get request zeigt aufgaben an ")
     void test13() throws Exception{
         mvc.perform(get("/addAufgabe"))

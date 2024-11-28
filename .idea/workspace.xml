@@ -4,55 +4,59 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e1c5ee78-4c07-4421-9f8c-b2e2ced2c35d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/exambyte/config/SecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/exambyte/config/WebService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/application.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/MultipleChoiceAufgaben.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/addAufgabe.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/example/exambyte/helper/WithMockOAuth2User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/example/exambyte/helper/WithOAuth2UserSecurityContextFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10.2/checksums/checksums.lock" afterDir="false" />
+    <list default="true" id="e1c5ee78-4c07-4421-9f8c-b2e2ced2c35d" name="Changes" comment="GitHub als externen Authentifizierungsprovider eingebunden">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/exambyte/config/KorrektorOnly.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/exambyte/config/MethodSecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/exambyte/config/OrganizatorOnly.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/exambyte/domainLayer/interfaces/AufgabenRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/exambyte/domainLayer/interfaces/TestRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/exambyte/domainLayer/interfaces/UserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/exambyte/persistence/repositories/AufgabenRepo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10.2/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10.2/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10.2/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10.2/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10.2/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/exambyte/controller/AufgabenForm.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/exambyte/controller/AufgabenForm.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/exambyte/controller/ExamByte.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/exambyte/controller/ExamByte.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/exambyte/srevice/AufgabenService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/exambyte/srevice/TestService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/exambyte/srevice/UserService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/exambyte/controller/TestForm.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/exambyte/controller/TestForm.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/exambyte/users/Organisator.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/test/com/example/exambyte/ExamByteTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/com/example/exambyte/ExamByteTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/com.example.exambyte.ExamByteTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/com.example.exambyte.ExamByteTest.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/reports/tests/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/reports/tests/test/packages/com.example.exambyte.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/packages/com.example.exambyte.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/addTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/addTest.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/aufgabe.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/tests.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/tests.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-com.example.exambyte.ExamByteTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/TEST-com.example.exambyte.ExamByteTest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/ExamByte.class.uniqueId0" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileTestJava/compileTransaction/stash-dir/ExamByteTest.class.uniqueId0" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileTestJava/compileTransaction/stash-dir/ExamByteTest.class.uniqueId0" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileTestJava/compileTransaction/stash-dir/ExamByteTest.class.uniqueId0" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileTestJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileTestJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/exambyte/controller/AufgabenForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/exambyte/controller/AufgabenForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/exambyte/Email.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/exambyte/domainLayer/Email.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/exambyte/ExambyteApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/exambyte/ExambyteApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/exambyte/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/exambyte/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/exambyte/config/WebService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/exambyte/config/WebService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/exambyte/controller/ExamByte.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/exambyte/controller/ExamByte.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/exambyte/srevice/AufgabenService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/exambyte/service/AufgabenService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/exambyte/srevice/TestService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/exambyte/service/TestService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/exambyte/srevice/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/exambyte/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/addTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/addTest.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/aufgabe.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/tests.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/tests.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/exambyte/controller/TestForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/exambyte/controller/TestForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/exambyte/repositories/AufgabenRepo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/exambyte/repositories/TestRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/exambyte/persistence/repositories/TestRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/exambyte/repositories/UserRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/exambyte/persistence/repositories/UserRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/exambyte/service/AufgabenService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/exambyte/applicationService/AufgabenService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/exambyte/service/TestService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/exambyte/applicationService/TestService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/exambyte/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/exambyte/applicationService/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/exambyte/test/Aufgaben.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/exambyte/domainLayer/Aufgabe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/exambyte/test/MultipleChoiceAufgabe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/exambyte/domainLayer/MultipleChoiceAufgabe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/exambyte/test/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/exambyte/domainLayer/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/exambyte/test/TextAufgaben.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/exambyte/domainLayer/TextAufgaben.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/exambyte/users/Korrektor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/exambyte/users/Korrektor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/exambyte/users/Organisator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/exambyte/users/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/exambyte/users/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/exambyte/users/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/exambyte/users/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/example/exambyte/ExamByteTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/exambyte/ExamByteTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -103,6 +107,8 @@
         <option value="Record" />
         <option value="HTML File" />
         <option value="Class" />
+        <option value="AnnotationType" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -126,10 +132,11 @@
     &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/kiavashemami/Library/Mobile Documents/com~apple~CloudDocs/Uni/Propra2/2024/ExamByte/src/test/java/com/example/exambyte/helper&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/kiavashemami/Library/Mobile Documents/com~apple~CloudDocs/Uni/Propra2/2024/ExamByte&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -142,6 +149,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.example.exambyte.domain.interfaces" />
       <recent name="com.example.exambyte" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
@@ -151,13 +159,46 @@
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.example.exambyte.persistence" />
+      <recent name="com.example.exambyte.domain" />
+    </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="com.example.exambyte" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.exambyte.config" />
+    </key>
   </component>
-  <component name="RunManager" selected="Gradle.ExamByteTest.test01">
+  <component name="RunManager" selected="Spring Boot.ExambyteApplication">
+    <configuration default="true" type="DjangoTestsConfigurationType">
+      <module name="ExamByte" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="TARGET" value="" />
+      <option name="SETTINGS_FILE" value="" />
+      <option name="CUSTOM_SETTINGS" value="false" />
+      <option name="USE_OPTIONS" value="false" />
+      <option name="OPTIONS" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="ExamByteTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
+        <option name="env">
+          <map>
+            <entry key="CLIENT_ID" value="Ov23limMcEg1FhUWZ78B" />
+            <entry key="CLIENT_SECRETS" value="1e1ee804374e68f396c97aeb047fe4a2d24071f4" />
+          </map>
+        </option>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
@@ -282,10 +323,71 @@
       <ForceTestExec>true</ForceTestExec>
       <method v="2" />
     </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="ExamByte" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="ExamByte" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="PyBehaveRunConfigurationType" factoryName="Behave">
+      <module name="ExamByte" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="ADDITIONAL_ARGS" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <module name="ExamByte" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="Python.FlaskServer">
+      <module name="ExamByte" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <method v="2" />
+    </configuration>
     <configuration name="ExambyteApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <envs>
         <env name="CLIENT_ID" value="Ov23limMcEg1FhUWZ78B" />
-        <env name="CLIENT_SECRET" value="b36efd26b69bf28d18b24e2f89e7c158263811c9" />
+        <env name="CLIENT_SECRET" value="5f6d413b4299b495b5e1f08211a9b2b2a162e9e4" />
       </envs>
       <module name="Exambyte.main" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.exambyte.ExambyteApplication" />
@@ -298,6 +400,18 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="Tox" factoryName="Tox">
+      <module name="ExamByte" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Gradle.ExamByteTest" />
       <item itemvalue="Gradle.ExamByteTest.test01" />
@@ -308,8 +422,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.ExamByteTest.test01" />
         <item itemvalue="Gradle.ExamByteTest" />
+        <item itemvalue="Gradle.ExamByteTest.test01" />
         <item itemvalue="Gradle.ExamByteTest.test10" />
         <item itemvalue="Gradle.ExamByteTest.test13" />
         <item itemvalue="Gradle.ExamByteTest.test12" />
@@ -338,11 +452,53 @@
       <workItem from="1731138748877" duration="3790000" />
       <workItem from="1731347576078" duration="4292000" />
       <workItem from="1731571642652" duration="21425000" />
-      <workItem from="1731748222947" duration="13000" />
+      <workItem from="1731748222947" duration="18889000" />
+      <workItem from="1732190379053" duration="4661000" />
+      <workItem from="1732355460952" duration="2445000" />
+      <workItem from="1732637982999" duration="49000" />
+      <workItem from="1732638036301" duration="705000" />
+      <workItem from="1732638758909" duration="1285000" />
+      <workItem from="1732710293090" duration="7943000" />
     </task>
+    <task id="LOCAL-00001" summary="GitHub als externen Authentifizierungsprovider eingebunden">
+      <option name="closed" value="true" />
+      <created>1731748374910</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1731748374910</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="GitHub als externen Authentifizierungsprovider eingebunden" />
+    <option name="LAST_COMMIT_MESSAGE" value="GitHub als externen Authentifizierungsprovider eingebunden" />
   </component>
 </project>
