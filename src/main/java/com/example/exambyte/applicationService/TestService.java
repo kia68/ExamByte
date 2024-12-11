@@ -1,8 +1,8 @@
 package com.example.exambyte.applicationService;
 
-import com.example.exambyte.domainLayer.service.AufgabenRepository;
-import com.example.exambyte.domainLayer.service.TestRepository;
-import com.example.exambyte.domainLayer.service.UserRepository;
+import com.example.exambyte.domainLayer.serviceRepository.AufgabenRepository;
+import com.example.exambyte.domainLayer.serviceRepository.TestRepository;
+import com.example.exambyte.domainLayer.serviceRepository.UserRepository;
 import com.example.exambyte.domainLayer.model.Aufgabe;
 import com.example.exambyte.domainLayer.model.Test;
 import com.example.exambyte.domainLayer.model.User;
@@ -35,5 +35,9 @@ public class TestService {
     }
     public List<Aufgabe> getAufgaben(){
         return aufgabenRepo.findAll();
+    }
+
+    public void addAufgabe(Aufgabe aufgabe) {
+        aufgabenRepo.save(aufgabe);
     }
 }

@@ -1,6 +1,6 @@
 package com.example.exambyte.applicationService;
 
-import com.example.exambyte.domainLayer.service.AufgabenRepository;
+import com.example.exambyte.domainLayer.serviceRepository.AufgabenRepository;
 import com.example.exambyte.domainLayer.model.Aufgabe;
 import org.springframework.stereotype.Service;
 
@@ -12,8 +12,8 @@ public class AufgabenService {
         this.aufgabenRepo = aufgabenRepo;
     }
 
-    private Aufgabe addAufgabe(String titel, double punkt) {
-        Aufgabe aufgabe = new Aufgabe(titel, punkt);
+    private Aufgabe addAufgabe(String titel, double punkt, String type) {
+        Aufgabe aufgabe = new Aufgabe(titel, punkt, type);
         return aufgabenRepo.save(aufgabe);
     }
 

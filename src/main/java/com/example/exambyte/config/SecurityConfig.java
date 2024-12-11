@@ -13,7 +13,7 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.authorizeHttpRequests(
                 configurer -> configurer
-                        .requestMatchers("/", "/css/*").permitAll()
+                        .requestMatchers("/home", "/showTest", "/css/*").permitAll()
                         //.requestMatchers("/addAufgabe").hasRole("ADMIN")
                         .anyRequest().authenticated()
         )

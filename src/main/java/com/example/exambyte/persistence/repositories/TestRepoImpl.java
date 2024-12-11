@@ -1,7 +1,7 @@
 package com.example.exambyte.persistence.repositories;
 
 import com.example.exambyte.domainLayer.model.Test;
-import com.example.exambyte.domainLayer.service.TestRepository;
+import com.example.exambyte.domainLayer.serviceRepository.TestRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;

@@ -44,9 +44,12 @@ public class ArchUnitTest {
             .areAnnotatedWith(Controller.class);
 
     @ArchTest
+    ArchRule nameTest = classes().that().resideInAnyPackage("..applicationService..").and().areAnnotatedWith(Service.class).should().haveSimpleNameEndingWith("Service");
+
+    @ArchTest
     ArchRule onionTest = onionArchitecture()
-            .domainModels("..domainLayer.model..")
-            .domainServices("..domain.service..")
+            .domainModels("..domainLayer..")
+            .domainServices("..domainLayer..")
             .applicationServices("..applicationService..")
             .adapter("web", "..controller..")
             .adapter("db", "..repositories..")

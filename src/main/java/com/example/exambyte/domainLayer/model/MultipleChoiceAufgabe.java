@@ -7,8 +7,8 @@ public class MultipleChoiceAufgabe extends Aufgabe {
     private List<String> options;
     private List<Aufgabe> correctOptions;
 
-    public MultipleChoiceAufgabe(String title, double punkt, List<String> options, String correctAnswer) {
-        super(title, punkt);
+    public MultipleChoiceAufgabe(String title, double punkt,String type, List<String> options, String correctAnswer) {
+        super(title, punkt, type);
         this.options = options;
         this.correctAnswer = correctAnswer;
     }

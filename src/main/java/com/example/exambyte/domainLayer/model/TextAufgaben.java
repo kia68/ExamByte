@@ -5,8 +5,8 @@ public class TextAufgaben extends Aufgabe {
     private String correctAntwort;
 
     private double punkt;
-    public TextAufgaben(String title, double punkt,String correctAntwort) {
-        super(title, punkt);
+    public TextAufgaben(String title, double punkt,String type,String correctAntwort) {
+        super(title, punkt, type);
         this.correctAntwort = correctAntwort;
     }
 

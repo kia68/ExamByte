@@ -10,7 +10,7 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-        <a class="navbar-brand" href="/">ExamByte-System</a>
+        <a class="navbar-brand" href="/home">ExamByte-System</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -42,7 +42,7 @@
 </div>
 
 <div >
-    <form method="post" th:action="@{/addTest}" th:object="${test}">
+    <form method="post" th:action="@{/addTest}" th:object="${home}">
         <div class="mb-3">
             <label class="form-label" for="testName">In welchen Woche ?</label>
             <input class="form-control" id="testName" name="name" placeholder="Woche1"

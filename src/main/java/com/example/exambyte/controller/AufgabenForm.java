@@ -1,19 +1,15 @@
-package com.example.exambyte.domainLayer.model;
+package com.example.exambyte.controller;
 
-public class Aufgabe {
-
+public class AufgabenForm {
     private String title;
     private double punkt;
-
     private String type;
-//    private String answerOption;
-    public Aufgabe(String title, double punkt, String type) {
+
+    public AufgabenForm(String title, double punkt, String type) {
         this.title = title;
         this.punkt = punkt;
         this.type = type;
     }
-
-
 
     public String getTitle() {
         return title;
@@ -32,11 +28,10 @@ public class Aufgabe {
     }
 
     public String getType() {
-        return null;
+        return type;
     }
 
     public void setType(String type) {
         this.type = type;
     }
-
 }

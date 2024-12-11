@@ -1,10 +1,8 @@
 package com.example.exambyte.controller;
 
 import com.example.exambyte.applicationService.TestService;
-import com.example.exambyte.config.OrganizatorOnly;
-import com.example.exambyte.domainLayer.model.Email;
+import com.example.exambyte.domainLayer.model.Aufgabe;
 import com.example.exambyte.domainLayer.model.Test;
-import com.example.exambyte.domainLayer.model.User;
 import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,51 +21,36 @@ public class ExamByte {
         this.testService = test;
     }
 
-    @GetMapping
-    public String load(Model model){
-        model.addAttribute("user", testService.userList());
-        return "home";
-    }
-    @GetMapping("/tests")
-    public String tests(Model model, OAuth2AuthenticationToken auth){
+    @GetMapping("/home")
+    public String load(Model model, OAuth2AuthenticationToken auth){
         String login = auth.getPrincipal().getAttribute("login");
-        System.out.println(auth);
+        System.out.println(login);
         model.addAttribute("name", login);
         model.addAttribute("tests", testService.getTests());
-        return "tests";
+
+        //model.addAttribute("user", testService.userList());
+        return "home";
     }
-
-    @PostMapping
-    public String register(OAuth2AuthenticationToken auth, Email email, String action){
-        String login = auth.getPrincipal().getAttribute("login");
-        User user = new User(email);
-        //model.addAttribute("user", user);
-        testService.userList().add(user);
-//        model.addAttribute("user", userList);
-//        System.out.println(testService.userList());
-//        System.out.println(action);
-        return "redirect:/";
-    }
-
-
-    @GetMapping("/addAufgabe")
-    @OrganizatorOnly
-    public String aufgabe(Model model){
-        model.addAttribute("aufgabe", testService.getTests());
-        return "addAufgabe";
-    }
-
-//    @PostMapping("/create")
-//    public void createAufgabe(Model model, AufgabenForm aufgabenForm){
-//        Aufgaben aufgaben;
-//        if ("MultipleChoice".equals(aufgabenForm.type())){
-//            aufgaben = new MultipleChoiceAufgabe(aufgabenForm.titel(),
-//                    aufgabenForm.punkt(), aufgabenForm.);
-//        }
-//        else {
-//
-//        }
+//    @GetMapping("/tests")
+//    public String tests(Model model, OAuth2AuthenticationToken auth){
+//        String login = auth.getPrincipal().getAttribute("login");
+//        System.out.println(auth);
+//        model.addAttribute("name", login);
+//        model.addAttribute("tests", testService.getTests());
+//        return "tests";
 //    }
+
+//    @PostMapping
+//    public String register(OAuth2AuthenticationToken auth, Email email, String action){
+//        String login = auth.getPrincipal().getAttribute("login");
+//        User user = new User(email);
+//        //model.addAttribute("user", user);
+//        testService.userList().add(user);
+//        return "redirect:/";
+//    }
+
+
+    //@OrganizatorOnly
 
 
     @GetMapping("/addTest")
@@ -82,7 +65,30 @@ public class ExamByte {
                 testForm.getAufgabens());
         testService.addTest(test);
         System.out.println("post addtest done");
-        return "redirect:/tests";
+        return "redirect:/home";
+    }
+    @GetMapping("/aufgabe")
+    public String aufgabe(Model model, AufgabenForm aufgabenForm){
+        Aufgabe aufgabe = new Aufgabe(aufgabenForm.getTitle(), aufgabenForm.getPunkt(), aufgabenForm.getType());
+        testService.addAufgabe(aufgabe);
+        //model.addAttribute("aufgabe", aufgabenForm);
+        System.out.println("get aufgabe");
+        return "aufgabe";
+    }
+
+    @GetMapping("/addAufgabe")
+    public String addAufgabe(Model model){
+        //model.addAttribute("aufgabe", testService.getAufgaben());
+        System.out.println("get addaufgabe");
+        return "addAufgabe";
+    }
+
+    @PostMapping("/addAufgabe")
+    public String createAufgabe(Model model, Aufgabe aufgabe){
+        //Aufgabe aufgabe1 = new Aufgabe("aufgabe", )
+        model.addAttribute("aufgabe", aufgabe);
+        System.out.println("post addaufgabe");
+        return "redirect:/aufgabe";
     }
 
 
