@@ -1,23 +1,15 @@
 package com.example.exambyte.controller;
 
 public class TestForm {
-    private Integer id;
+    //id löschen
     private String name;
-    private Integer aufgabens;
+    private Integer aufgaben;
 
-    public TestForm(Integer id, String name, Integer aufgabens) {
-        this.id = id;
+    public TestForm(String name, Integer aufgabens) {
         this.name = name;
-        this.aufgabens = aufgabens;
+        this.aufgaben = aufgabens;
     }
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;
@@ -27,11 +19,11 @@ public class TestForm {
         this.name = name;
     }
 
-    public Integer getAufgabens() {
-        return aufgabens;
+    public Integer getAufgaben() {
+        return aufgaben;
     }
 
-    public void setAufgabens(Integer aufgabens) {
-        this.aufgabens = aufgabens;
+    public void setAufgaben(Integer aufgaben) {
+        this.aufgaben = aufgaben;
     }
 }

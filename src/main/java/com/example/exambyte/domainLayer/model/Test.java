@@ -4,8 +4,7 @@ import java.time.LocalDateTime;
 
 public class Test {
 
-    public Test(Integer id,String name, LocalDateTime startTime, LocalDateTime endTime, Integer aufgabens) {
-        this.id = id;
+    public Test(String name, LocalDateTime startTime, LocalDateTime endTime, Integer aufgabens) {
         this.name = name;
         this.startTime = startTime;
         this.endTime = endTime;
@@ -13,19 +12,10 @@ public class Test {
     }
 
 
-    private Integer id;
     private String name;
     private LocalDateTime startTime;
     private LocalDateTime endTime;
     private Integer aufgabens;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;

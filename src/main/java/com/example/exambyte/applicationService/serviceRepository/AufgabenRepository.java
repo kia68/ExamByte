@@ -1,4 +1,4 @@
-package com.example.exambyte.domainLayer.serviceRepository;
+package com.example.exambyte.applicationService.serviceRepository;
 
 import com.example.exambyte.domainLayer.model.Aufgabe;
 

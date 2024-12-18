@@ -1,6 +1,6 @@
 package com.example.exambyte.persistence.repositories;
 
-import com.example.exambyte.domainLayer.serviceRepository.AufgabenRepository;
+import com.example.exambyte.applicationService.serviceRepository.AufgabenRepository;
 import com.example.exambyte.domainLayer.model.Aufgabe;
 import org.springframework.stereotype.Repository;
 

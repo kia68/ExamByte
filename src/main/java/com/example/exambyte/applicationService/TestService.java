@@ -1,8 +1,8 @@
 package com.example.exambyte.applicationService;
 
-import com.example.exambyte.domainLayer.serviceRepository.AufgabenRepository;
-import com.example.exambyte.domainLayer.serviceRepository.TestRepository;
-import com.example.exambyte.domainLayer.serviceRepository.UserRepository;
+import com.example.exambyte.applicationService.serviceRepository.AufgabenRepository;
+import com.example.exambyte.applicationService.serviceRepository.TestRepository;
+import com.example.exambyte.applicationService.serviceRepository.UserRepository;
 import com.example.exambyte.domainLayer.model.Aufgabe;
 import com.example.exambyte.domainLayer.model.Test;
 import com.example.exambyte.domainLayer.model.User;

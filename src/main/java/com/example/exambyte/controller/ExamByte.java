@@ -61,8 +61,8 @@ public class ExamByte {
 
     @PostMapping("/addTest")
     public String addTest(Model model, TestForm testForm){
-        Test test = new Test(testForm.getId() ,testForm.getName(), LocalDateTime.now(), LocalDateTime.now().plusWeeks(1),
-                testForm.getAufgabens());
+        Test test = new Test(testForm.getName(), LocalDateTime.now(), LocalDateTime.now().plusWeeks(1),
+                testForm.getAufgaben());
         testService.addTest(test);
         System.out.println("post addtest done");
         return "redirect:/home";
