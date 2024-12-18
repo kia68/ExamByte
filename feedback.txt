@@ -1,0 +1,5 @@
+Hallo PropraTeam
+1. General Feedback
+2. Architecture
+3. Controller und Verbundene HTML
+4. Docker und DatenBank kann noch nicht mit meinem Projekt verwenden!!!

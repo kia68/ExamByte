@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.exambyte.ArchUnitTest" tests="7" skipped="0" failures="1" errors="0" timestamp="2024-12-11T10:12:51" hostname="vpn-002-045.vpn.uni-wuppertal.de" time="0.902">
+  <properties/>
+  <testcase name="noMemberShoudBeAutoWired" classname="com.example.exambyte.ArchUnitTest" time="0.822"/>
+  <testcase name="alleKlasseSindAnnotiert" classname="com.example.exambyte.ArchUnitTest" time="0.003">
+    <failure message="java.lang.AssertionError: Architecture Violation [Priority: MEDIUM] - Rule 'classes that reside in any package ['..applicationService..'] should be annotated with @Service' was violated (3 times):&#10;Class &lt;com.example.exambyte.applicationService.serviceRepository.AufgabenRepository&gt; is not annotated with @Service in (AufgabenRepository.java:0)&#10;Class &lt;com.example.exambyte.applicationService.serviceRepository.TestRepository&gt; is not annotated with @Service in (TestRepository.java:0)&#10;Class &lt;com.example.exambyte.applicationService.serviceRepository.UserRepository&gt; is not annotated with @Service in (UserRepository.java:0)" type="java.lang.AssertionError">java.lang.AssertionError: Architecture Violation [Priority: MEDIUM] - Rule 'classes that reside in any package ['..applicationService..'] should be annotated with @Service' was violated (3 times):
+Class &lt;com.example.exambyte.applicationService.serviceRepository.AufgabenRepository&gt; is not annotated with @Service in (AufgabenRepository.java:0)
+Class &lt;com.example.exambyte.applicationService.serviceRepository.TestRepository&gt; is not annotated with @Service in (TestRepository.java:0)
+Class &lt;com.example.exambyte.applicationService.serviceRepository.UserRepository&gt; is not annotated with @Service in (UserRepository.java:0)
+	at com.tngtech.archunit.lang.ArchRule$Assertions.assertNoViolation(ArchRule.java:94)
+	at com.tngtech.archunit.lang.ArchRule$Assertions.check(ArchRule.java:86)
+	at com.tngtech.archunit.lang.ArchRule$Factory$SimpleArchRule.check(ArchRule.java:165)
+	at com.tngtech.archunit.lang.syntax.ObjectsShouldInternal.check(ObjectsShouldInternal.java:81)
+	at com.tngtech.archunit.junit.internal.ArchUnitTestDescriptor$ArchUnitRuleDescriptor.execute(ArchUnitTestDescriptor.java:167)
+	at com.tngtech.archunit.junit.internal.ArchUnitTestDescriptor$ArchUnitRuleDescriptor.execute(ArchUnitTestDescriptor.java:150)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+</failure>
+  </testcase>
+  <testcase name="DieVariablenInControllerKlassenSolltenPrivateSein" classname="com.example.exambyte.ArchUnitTest" time="0.0"/>
+  <testcase name="NurControllerKlassenDuerfenAufAndereControllerKlassenZugreifen" classname="com.example.exambyte.ArchUnitTest" time="0.001"/>
+  <testcase name="NurControllerKlassenDuerfenAufAndereControllerKlassenZugreifenn" classname="com.example.exambyte.ArchUnitTest" time="0.012"/>
+  <testcase name="nameTest" classname="com.example.exambyte.ArchUnitTest" time="0.001"/>
+  <testcase name="onionTest" classname="com.example.exambyte.ArchUnitTest" time="0.062"/>
+  <system-out><![CDATA[13:42:51.379 [Test worker] INFO com.tngtech.archunit.core.PluginLoader -- Detected Java version 21.0.1
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -4,36 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e1c5ee78-4c07-4421-9f8c-b2e2ced2c35d" name="Changes" comment="ArchunitTests sind geschrieben und passt">
-      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10.2/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10.2/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10.2/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10.2/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10.2/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/exambyte/controller/ExamByte.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/exambyte/controller/ExamByte.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/exambyte/controller/TestForm.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/exambyte/controller/TestForm.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/packages/com.example.exambyte.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/packages/com.example.exambyte.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/addTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/addTest.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileTestJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileTestJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/exambyte/applicationService/AufgabenService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/exambyte/applicationService/AufgabenService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/exambyte/applicationService/TestService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/exambyte/applicationService/TestService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/exambyte/applicationService/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/exambyte/applicationService/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/exambyte/controller/ExamByte.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/exambyte/controller/ExamByte.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/exambyte/controller/TestForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/exambyte/controller/TestForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/exambyte/domainLayer/model/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/exambyte/domainLayer/model/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/exambyte/domainLayer/serviceRepository/AufgabenRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/exambyte/applicationService/serviceRepository/AufgabenRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/exambyte/domainLayer/serviceRepository/TestRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/exambyte/applicationService/serviceRepository/TestRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/exambyte/domainLayer/serviceRepository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/exambyte/applicationService/serviceRepository/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/exambyte/persistence/repositories/AufgabenRepoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/exambyte/persistence/repositories/AufgabenRepoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/exambyte/persistence/repositories/TestRepoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/exambyte/persistence/repositories/TestRepoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/exambyte/persistence/repositories/UserRepoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/exambyte/persistence/repositories/UserRepoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/addTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/addTest.html" afterDir="false" />
-    </list>
+    <list default="true" id="e1c5ee78-4c07-4421-9f8c-b2e2ced2c35d" name="Changes" comment="ArchunitTests sind geschrieben und passt" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -438,6 +409,7 @@
       <workItem from="1732782332885" duration="3239000" />
       <workItem from="1732895811526" duration="15602000" />
       <workItem from="1733836568565" duration="18578000" />
+      <workItem from="1734503034045" duration="770000" />
     </task>
     <task id="LOCAL-00001" summary="GitHub als externen Authentifizierungsprovider eingebunden">
       <option name="closed" value="true" />
@@ -463,7 +435,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733904615374</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="ArchunitTests sind geschrieben und passt">
+      <option name="closed" value="true" />
+      <created>1734503239336</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1734503239336</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
