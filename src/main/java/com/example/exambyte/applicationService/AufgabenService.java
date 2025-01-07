@@ -12,8 +12,8 @@ public class AufgabenService {
         this.aufgabenRepo = aufgabenRepo;
     }
 
-    private Aufgabe addAufgabe(String titel, double punkt, String type) {
-        Aufgabe aufgabe = new Aufgabe(titel, punkt, type);
+    private Aufgabe addAufgabe(String titel, Integer punkt, String type,String aufgabee,String antwort) {
+        Aufgabe aufgabe = new Aufgabe(titel, punkt, type, aufgabee, antwort);
         return aufgabenRepo.save(aufgabe);
     }
 

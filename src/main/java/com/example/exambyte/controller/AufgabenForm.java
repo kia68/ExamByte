@@ -2,13 +2,17 @@ package com.example.exambyte.controller;
 
 public class AufgabenForm {
     private String title;
-    private double punkt;
+    private Integer punkt;
     private String type;
+    private String aufgabe;
+    private String antwort;
 
-    public AufgabenForm(String title, double punkt, String type) {
+    public AufgabenForm(String title, Integer punkt, String type, String aufgabe, String antwort) {
         this.title = title;
         this.punkt = punkt;
         this.type = type;
+        this.aufgabe = aufgabe;
+        this.antwort = antwort;
     }
 
     public String getTitle() {
@@ -19,11 +23,11 @@ public class AufgabenForm {
         this.title = title;
     }
 
-    public double getPunkt() {
+    public Integer getPunkt() {
         return punkt;
     }
 
-    public void setPunkt(double punkt) {
+    public void setPunkt(Integer punkt) {
         this.punkt = punkt;
     }
 
@@ -33,5 +37,21 @@ public class AufgabenForm {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public String getAufgabe() {
+        return aufgabe;
+    }
+
+    public void setAufgabe(String aufgabe) {
+        this.aufgabe = aufgabe;
+    }
+
+    public String getAntwort() {
+        return antwort;
+    }
+
+    public void setAntwort(String antwort) {
+        this.antwort = antwort;
     }
 }

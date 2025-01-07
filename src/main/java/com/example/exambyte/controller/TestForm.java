@@ -1,7 +1,6 @@
 package com.example.exambyte.controller;
 
 public class TestForm {
-    //id löschen
     private String name;
     private Integer aufgaben;
 

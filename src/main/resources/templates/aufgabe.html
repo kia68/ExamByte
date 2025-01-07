@@ -10,7 +10,7 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-        <a class="navbar-brand" href="/home">ExamByte-System</a>
+        <a class="navbar-brand" href="/">ExamByte-System</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -52,7 +52,7 @@
             </tr>
             </thead>
             <tbody th:remove="all-but-first">
-            <tr th:each="aufgabe : ${aufgabe}">
+            <tr th:each="aufgabe : ${aufgabens}">
                 <td>
                     <span th:text="${aufgabe.getTitle()}"> Example Aufgabe Woche </span>
                 </td>
@@ -60,7 +60,7 @@
                     <span th:text="${aufgabe.getPunkt()}"> Example Aufgabe Nummer </span>
                 </td>
                 <td>
-                    <span th:text="${aufgabe.getType()}"> Example Aufgabe Nummer </span>
+                    <span th:text="${aufgabe.getType()}"> Example Aufgabe Type </span>
                 </td>
                 <td><a href="/addAufgabe">Add Aufgabe</a></td>
                 <td>

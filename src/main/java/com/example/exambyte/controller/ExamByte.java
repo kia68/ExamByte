@@ -21,7 +21,7 @@ public class ExamByte {
         this.testService = test;
     }
 
-    @GetMapping("/home")
+    @GetMapping()
     public String load(Model model, OAuth2AuthenticationToken auth){
         String login = auth.getPrincipal().getAttribute("login");
         System.out.println(login);
@@ -65,31 +65,30 @@ public class ExamByte {
                 testForm.getAufgaben());
         testService.addTest(test);
         System.out.println("post addtest done");
-        return "redirect:/home";
+        return "redirect:/";
     }
-    @GetMapping("/aufgabe")
-    public String aufgabe(Model model, AufgabenForm aufgabenForm){
-        Aufgabe aufgabe = new Aufgabe(aufgabenForm.getTitle(), aufgabenForm.getPunkt(), aufgabenForm.getType());
-        testService.addAufgabe(aufgabe);
-        //model.addAttribute("aufgabe", aufgabenForm);
-        System.out.println("get aufgabe");
-        return "aufgabe";
-    }
-
     @GetMapping("/addAufgabe")
     public String addAufgabe(Model model){
-        //model.addAttribute("aufgabe", testService.getAufgaben());
         System.out.println("get addaufgabe");
         return "addAufgabe";
     }
 
     @PostMapping("/addAufgabe")
-    public String createAufgabe(Model model, Aufgabe aufgabe){
-        //Aufgabe aufgabe1 = new Aufgabe("aufgabe", )
-        model.addAttribute("aufgabe", aufgabe);
+    public String createAufgabe(Model model, AufgabenForm aufgabenForm){
+        Aufgabe aufgabe = new Aufgabe(aufgabenForm.getTitle(),aufgabenForm.getPunkt(),
+                aufgabenForm.getType(), aufgabenForm.getAufgabe(), aufgabenForm.getAntwort());
+        //model.addAttribute("aufgabe", aufgabe);
+        testService.addAufgabe(aufgabe);
         System.out.println("post addaufgabe");
         return "redirect:/aufgabe";
     }
+    @GetMapping("/aufgabe")
+    public String aufgabe(Model model, AufgabenForm aufgabenForm){
+        model.addAttribute("aufgabens", testService.getAufgaben());
+        System.out.println("get aufgabe");
+        return "aufgabe";
+    }
+
 
 
 

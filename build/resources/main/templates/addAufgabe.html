@@ -10,7 +10,7 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-        <a class="navbar-brand" href="/home">ExamByte-System</a>
+        <a class="navbar-brand" href="/">ExamByte-System</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -36,17 +36,17 @@
 
 <div class="container mt-5">
 
-    <form method="post" th:object="${aufgabe}" th:action="@{/aufgabe}">
+    <form method="post" th:action="@{/addAufgabe}" th:object="${aufgabenForm}">
         <div class="form-group row">
             <label for="aufgabeName" class="col-sm-2 col-form-label">Titel der Aufgabe</label>
             <div class="col-sm-10">
-                <input type="text" name="aufgabeName" class="form-control" id="aufgabeName" placeholder="aufgabe Name">
+                <input type="text" name="title" class="form-control" id="aufgabeName" placeholder="aufgabe Name">
             </div>
         </div>
         <div class="form-group row">
-            <label for="Punkte" class="col-sm-2 col-form-label">Punkte:</label>
+            <label for="punkt" class="col-sm-2 col-form-label">Punkte:</label>
             <div class="col-sm-10">
-                <input type="number" class="form-control" id="Punkte" name="Punkte" placeholder="5">
+                <input type="number" class="form-control" id="punkt" name="punkt" placeholder="5">
             </div>
         </div>
         <fieldset class="form-group">
@@ -54,14 +54,14 @@
                 <legend class="col-form-label col-sm-2 pt-0">Aufgabe Type</legend>
                 <div class="col-sm-10">
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="MultipleChoiceAufgabe"
+                        <input class="form-check-input" type="checkbox" name="type"
                                id="MultipleChoiceAufgabe" value="option1">
                         <label class="form-check-label" for="MultipleChoiceAufgabe">
                             Multiple Choice Aufgabe
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="textAufgaben" id="textAufgaben"
+                        <input class="form-check-input" type="checkbox" name="type" id="textAufgaben"
                                value="option2">
                         <label class="form-check-label" for="textAufgaben">
                             text Aufgaben
@@ -71,11 +71,11 @@
 
                 <div class="form-group">
                     <label for="Aufgabe">Aufgabe Box</label>
-                    <textarea class="form-control" id="Aufgabe" rows="3"></textarea>
+                    <textarea class="form-control" id="Aufgabe" name="aufgabe" rows="3"></textarea>
                 </div>
                 <div class="form-group">
                     <label for="Antwort">Antwort Box</label>
-                    <textarea class="form-control" id="Antwort" rows="3"></textarea>
+                    <textarea class="form-control" id="Antwort" name="antwort" rows="3"></textarea>
                 </div>
 
             </div>
@@ -89,24 +89,24 @@
         </div>
     </form>
 
-    <script>
-        function toggleFields() {
-            const type = document.getElementById("type").value;
-            const multipleChoiceFields = document.getElementById("multipleChoiceFields");
-            const textAnswerField = document.getElementById("textAnswerField");
+<!--    <script>-->
+<!--        function toggleFields() {-->
+<!--            const type = document.getElementById("type").value;-->
+<!--            const multipleChoiceFields = document.getElementById("multipleChoiceFields");-->
+<!--            const textAnswerField = document.getElementById("textAnswerField");-->
 
-            if (type === "MultipleChoice") {
-                multipleChoiceFields.style.display = "block";
-                textAnswerField.style.display = "none";
-            } else if (type === "Text") {
-                multipleChoiceFields.style.display = "none";
-                textAnswerField.style.display = "block";
-            } else {
-                multipleChoiceFields.style.display = "none";
-                textAnswerField.style.display = "none";
-            }
-        }
-    </script>
+<!--            if (type === "MultipleChoice") {-->
+<!--                multipleChoiceFields.style.display = "block";-->
+<!--                textAnswerField.style.display = "none";-->
+<!--            } else if (type === "Text") {-->
+<!--                multipleChoiceFields.style.display = "none";-->
+<!--                textAnswerField.style.display = "block";-->
+<!--            } else {-->
+<!--                multipleChoiceFields.style.display = "none";-->
+<!--                textAnswerField.style.display = "none";-->
+<!--            }-->
+<!--        }-->
+<!--    </script>-->
 </div>
 </body>
 </html>
