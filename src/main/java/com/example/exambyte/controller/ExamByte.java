@@ -74,7 +74,7 @@ public class ExamByte {
     }
 
     @PostMapping("/addAufgabe")
-    public String createAufgabe(Model model, AufgabenForm aufgabenForm){
+    public String addAufgabe(Model model, AufgabenForm aufgabenForm){
         Aufgabe aufgabe = new Aufgabe(aufgabenForm.getTitle(),aufgabenForm.getPunkt(),
                 aufgabenForm.getType(), aufgabenForm.getAufgabe(), aufgabenForm.getAntwort());
         //model.addAttribute("aufgabe", aufgabe);

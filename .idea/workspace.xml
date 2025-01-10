@@ -4,10 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e1c5ee78-4c07-4421-9f8c-b2e2ced2c35d" name="Changes" comment="feedback.txt hinzugefügt">
+    <list default="true" id="e1c5ee78-4c07-4421-9f8c-b2e2ced2c35d" name="Changes" comment="addAufgabe.html und aufgabe.html sind bearbeitet und funktioniert, aber fehlt noch den Logic :-D">
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10.2/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10.2/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10.2/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10.2/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10.2/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/exambyte/controller/ExamByte.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/exambyte/controller/ExamByte.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/exambyte/domainLayer/model/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/exambyte/domainLayer/model/Test.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/aufgabe.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/aufgabe.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/exambyte/controller/ExamByte.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/exambyte/controller/ExamByte.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/exambyte/controller/TestForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/exambyte/controller/TestForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/exambyte/domainLayer/model/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/exambyte/domainLayer/model/Test.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/addAufgabe.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/addAufgabe.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/addTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/addTest.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/aufgabe.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/aufgabe.html" afterDir="false" />
@@ -415,6 +427,8 @@
       <workItem from="1734503034045" duration="1485000" />
       <workItem from="1736024547921" duration="1791000" />
       <workItem from="1736253779796" duration="2887000" />
+      <workItem from="1736436517011" duration="4476000" />
+      <workItem from="1736524293739" duration="4974000" />
     </task>
     <task id="LOCAL-00001" summary="GitHub als externen Authentifizierungsprovider eingebunden">
       <option name="closed" value="true" />

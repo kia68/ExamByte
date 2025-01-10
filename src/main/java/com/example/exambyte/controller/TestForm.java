@@ -1,10 +1,12 @@
 package com.example.exambyte.controller;
 
+import com.example.exambyte.domainLayer.model.Aufgabe;
+
 public class TestForm {
     private String name;
-    private Integer aufgaben;
+    private Aufgabe aufgaben;
 
-    public TestForm(String name, Integer aufgabens) {
+    public TestForm(String name, Aufgabe aufgabens) {
         this.name = name;
         this.aufgaben = aufgabens;
     }
@@ -18,11 +20,11 @@ public class TestForm {
         this.name = name;
     }
 
-    public Integer getAufgaben() {
+    public Aufgabe getAufgaben() {
         return aufgaben;
     }
 
-    public void setAufgaben(Integer aufgaben) {
+    public void setAufgaben(Aufgabe aufgaben) {
         this.aufgaben = aufgaben;
     }
 }

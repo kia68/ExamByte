@@ -44,28 +44,32 @@
         <table class="table">
             <thead>
             <tr>
-                <th>Aufgabe</th>
-                <th>Aufgabe Nummer</th>
-                <th>Aufgabe type</th>
-                <th>Add Aufgaben</th>
+                <th>Woche</th>
+                <th>Name</th>
+                <th>Aufgabe Punkte</th>
+                <th>Aufgabe Type</th>
+                <th>Zu Aufgabe</th>
                 <th>Löschen</th>
             </tr>
             </thead>
             <tbody th:remove="all-but-first">
             <tr th:each="aufgabe : ${aufgabens}">
                 <td>
-                    <span th:text="${aufgabe.getTitle()}"> Example Aufgabe Woche </span>
+                    <span th:text="${aufgabe.getTitle()}">Example Aufgabe Woche </span>
                 </td>
                 <td>
-                    <span th:text="${aufgabe.getPunkt()}"> Example Aufgabe Nummer </span>
+                    <span th:text="${aufgabe.getTitle()}">Example Aufgabe Woche </span>
                 </td>
                 <td>
-                    <span th:text="${aufgabe.getType()}"> Example Aufgabe Type </span>
+                    <span th:text="${aufgabe.getPunkt()}">Example Aufgabe Punkt </span>
                 </td>
-                <td><a href="/addAufgabe">Add Aufgabe</a></td>
+                <td>
+                    <span th:text="${aufgabe.getType()}">Example Aufgabe Type </span>
+                </td>
+                <td><a href="/aufgabe">Zu Aufgabe</a></td>
                 <td>
                     <form>
-                        <button type="submit" class="btn btn-primary"> Löschen</button>
+                        <button type="submit" class="btn btn-primary">Löschen</button>
                     </form>
                 </td>
             </tr>
