@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Peer-Review System</title>
+    <title>Test</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -35,67 +35,37 @@
 </nav>
 
 <div class="container mt-5">
-    <h1>Willkommen zum ExamByte-System</h1>
-    <p>Bitte melden Sie sich an</p>
+    <h1 th:each="testt : ${test}"> Test <span th:text="${testt.getName()}"> Woche ... </span></h1>
 
-    <a href="/addTest">Hier klicken, um einen Test hinzuzufügen</a>
+    <a href="/addAufgabe">Hier klicken, um neuen Aufgaben hinzuzufügen</a>
 
 
     <div>
         <table class="table">
             <thead>
             <tr>
-                <th>Tests</th>
-                <th>Aufgaben</th>
-                <th>Zu den Tests</th>
-                <th>add Aufgaben</th>
+                <th>Name</th>
+                <th>Aufgabe Punkte</th>
+                <th>Aufgabe Type</th>
+                <th>Zu Aufgabe</th>
+                <th>Löschen</th>
             </tr>
             </thead>
             <tbody th:remove="all-but-first">
-            <tr th:each="test : ${tests}">
+            <tr th:each="aufgabe : ${aufgabens}">
                 <td>
-                    <span th:text="${test.getName()}"> Example Test Number </span>
+                    <span th:text="${aufgabe.getTitle()}">Example Aufgabe Woche </span>
                 </td>
                 <td>
-                    <span th:text="${test.getAufgabens()}"> Example Aufgabe Number </span>
+                    <span th:text="${aufgabe.getPunkt()}">Example Aufgabe Punkt </span>
                 </td>
-                <td><a href="/aufgabe">Zu den Tests</a></td>
-                <td><a href="/addAufgabe">add aufgaben</a></td>
+                <td>
+                    <span th:text="${aufgabe.getType()}">Example Aufgabe Type </span>
+                </td>
+                <td><a href="/aufgabe">Zu Aufgabe</a></td>
                 <td>
                     <form>
-                        <button type="submit" class="btn btn-primary"> Löschen</button>
-                    </form>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <span> Woche 2 </span>
-                </td>
-                <td>
-                    <span> 8 </span>
-                </td>
-                <td>
-                    <a href="#">Zu den Tests</a>
-                </td>
-                <td>
-                    <form>
-                        <button type="submit" class="btn btn-primary"> Löschen</button>
-                    </form>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <span> Woche 3 </span>
-                </td>
-                <td>
-                    <span> 4 </span>
-                </td>
-                <td>
-                    <a href="#">Zu den Tests</a>
-                </td>
-                <td>
-                    <form>
-                        <button type="submit" class="btn btn-primary"> Löschen</button>
+                        <button type="submit" class="btn btn-primary">Löschen</button>
                     </form>
                 </td>
             </tr>

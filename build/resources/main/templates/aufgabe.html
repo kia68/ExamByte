@@ -1,93 +1,112 @@
 <!DOCTYPE html>
 <html lang="de" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Peer-Review System</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aufgabe</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="/">ExamByte-System</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/tests">Tests</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Test-Review</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="addTest">Add Tests</a>
-                </li>
-            </ul>
-        </div>
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">ExamByte-System</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="tests">Test</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Test-Review</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="addTest">Add Tests</a>
+        </li>
+      </ul>
     </div>
+  </div>
 </nav>
 
 <div class="container mt-5">
-    <h1> <span> Woche ... </span> Aufgaben hinzufügen</h1>
 
-    <a href="/addAufgabe">Hier klicken, um neuen Aufgaben hinzuzufügen</a>
-
-
-    <div>
-        <table class="table">
-            <thead>
-            <tr>
-                <th>Woche</th>
-                <th>Name</th>
-                <th>Aufgabe Punkte</th>
-                <th>Aufgabe Type</th>
-                <th>Zu Aufgabe</th>
-                <th>Löschen</th>
-            </tr>
-            </thead>
-            <tbody th:remove="all-but-first">
-            <tr th:each="aufgabe : ${aufgabens}">
-                <td>
-                    <span th:text="${aufgabe.getTitle()}">Example Aufgabe Woche </span>
-                </td>
-                <td>
-                    <span th:text="${aufgabe.getTitle()}">Example Aufgabe Woche </span>
-                </td>
-                <td>
-                    <span th:text="${aufgabe.getPunkt()}">Example Aufgabe Punkt </span>
-                </td>
-                <td>
-                    <span th:text="${aufgabe.getType()}">Example Aufgabe Type </span>
-                </td>
-                <td><a href="/aufgabe">Zu Aufgabe</a></td>
-                <td>
-                    <form>
-                        <button type="submit" class="btn btn-primary">Löschen</button>
-                    </form>
-                </td>
-            </tr>
-            </tbody>
-        </table>
+  <form method="post" th:action="@{/addAufgabe}" th:object="${aufgabenForm}">
+    <div class="form-group row">
+      <label for="aufgabeName" class="col-sm-2 col-form-label">Titel der Aufgabe</label>
+      <div class="col-sm-10">
+        <input type="text" name="title" class="form-control" id="aufgabeName" placeholder="aufgabe Name">
+      </div>
     </div>
-
-    <div class="alert alert-warning" id="error-message" th:if="${error} != null" th:text="${error}">
-        Some error message
+    <div class="form-group row">
+      <label for="punkt" class="col-sm-2 col-form-label">Punkte:</label>
+      <div class="col-sm-10">
+        <input type="number" class="form-control" id="punkt" name="punkt" placeholder="5">
+      </div>
     </div>
+    <fieldset class="form-group">
+      <div class="row">
+        <legend class="col-form-label col-sm-2 pt-0">Aufgabe Type</legend>
+        <div class="col-sm-10">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="type"
+                   id="MultipleChoiceAufgabe" value="option1">
+            <label class="form-check-label" for="MultipleChoiceAufgabe">
+              Multiple Choice Aufgabe
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="type" id="textAufgaben"
+                   value="option2">
+            <label class="form-check-label" for="textAufgaben">
+              text Aufgaben
+            </label>
+          </div>
+        </div>
 
-    <div class="alert alert-success" id="success-message" th:if="${success} != null" th:text="${success}">
-        Some success message
+        <div class="form-group">
+          <label for="Aufgabe">Aufgabe Box</label>
+          <textarea class="form-control" id="Aufgabe" name="aufgabe" rows="3"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="Antwort">Antwort Box</label>
+          <textarea class="form-control" id="Antwort" name="antwort" rows="3"></textarea>
+        </div>
+
+      </div>
+    </fieldset>
+    <br>
+
+    <div class="form-group row">
+      <div class="col-sm-10">
+        <button type="submit" class="btn btn-primary">Aufgabe Erstellen</button>
+      </div>
     </div>
+  </form>
 
+  <!--    <script>-->
+  <!--        function toggleFields() {-->
+  <!--            const type = document.getElementById("type").value;-->
+  <!--            const multipleChoiceFields = document.getElementById("multipleChoiceFields");-->
+  <!--            const textAnswerField = document.getElementById("textAnswerField");-->
 
+  <!--            if (type === "MultipleChoice") {-->
+  <!--                multipleChoiceFields.style.display = "block";-->
+  <!--                textAnswerField.style.display = "none";-->
+  <!--            } else if (type === "Text") {-->
+  <!--                multipleChoiceFields.style.display = "none";-->
+  <!--                textAnswerField.style.display = "block";-->
+  <!--            } else {-->
+  <!--                multipleChoiceFields.style.display = "none";-->
+  <!--                textAnswerField.style.display = "none";-->
+  <!--            }-->
+  <!--        }-->
+  <!--    </script>-->
 </div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="js/script.js"></script>
 </body>
 </html>

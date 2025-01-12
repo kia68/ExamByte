@@ -2,6 +2,7 @@ plugins {
     id 'java'
     id 'org.springframework.boot' version '3.3.4'
     id 'io.spring.dependency-management' version '1.1.6'
+
 }
 
 group = 'com.example'
@@ -29,6 +30,17 @@ dependencies {
     testImplementation 'org.springframework.security:spring-security-test'
     implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
 
+    implementation 'org.flywaydb:flyway-core'
+    implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+    runtimeOnly 'org.postgresql:postgresql'
+    implementation 'org.flywaydb:flyway-mysql'
+
+
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa:3.4.0")
+    implementation("org.postgresql:postgresql:42.7.4")
+    implementation("org.flywaydb:flyway-core:11.0.1")
+    implementation("org.flywaydb:flyway-database-postgresql:11.0.1")
+    implementation("org.flywaydb:flyway-gradle-plugin:11.0.1")
 }
 
 tasks.named('test') {

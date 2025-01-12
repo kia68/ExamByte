@@ -80,13 +80,14 @@ public class ExamByte {
         //model.addAttribute("aufgabe", aufgabe);
         testService.addAufgabe(aufgabe);
         System.out.println("post addaufgabe");
-        return "redirect:/aufgabe";
+        return "redirect:/test";
     }
-    @GetMapping("/aufgabe")
+    @GetMapping("/test")
     public String aufgabe(Model model, AufgabenForm aufgabenForm){
         model.addAttribute("aufgabens", testService.getAufgaben());
+        model.addAttribute("test", testService.getTests());
         System.out.println("get aufgabe");
-        return "aufgabe";
+        return "test";
     }
 
 
