@@ -13,6 +13,10 @@ spring:
             client-id: ${CLIENT_ID}
             client-secret: ${CLIENT_SECRET}
             scope: read:public_repo
+  datasource:
+    password: iamgroot
+    username: user
+    url: jdbc:postgresql://localhost:5432/examByte
 
 
   main:
