@@ -2,18 +2,18 @@ package com.example.exambyte.domainLayer.model;
 
 
 public class Aufgabe {
+    private int id;
     private String title;
     private Integer punkt;
     private String type;
     private String aufgabe;
     private String antwort;
 
-    public Aufgabe(String title, Integer punkt, String type, String aufgabe, String antwort) {
+    public Aufgabe(String title, Integer punkt, String type, String aufgabe) {
         this.title = title;
         this.punkt = punkt;
         this.type = type;
         this.aufgabe = aufgabe;
-        this.antwort = antwort;
     }
 
     public String getTitle() {

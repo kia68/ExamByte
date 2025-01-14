@@ -22,7 +22,7 @@ public class AufgabenRepoImpl implements AufgabenRepository {
     }
 
     @Override
-    public Aufgabe findById(Long id) {
+    public Aufgabe findById(int id) {
         return null;
     }
 

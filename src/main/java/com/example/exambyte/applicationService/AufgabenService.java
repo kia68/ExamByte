@@ -13,7 +13,7 @@ public class AufgabenService {
     }
 
     private Aufgabe addAufgabe(String titel, Integer punkt, String type,String aufgabee,String antwort) {
-        Aufgabe aufgabe = new Aufgabe(titel, punkt, type, aufgabee, antwort);
+        Aufgabe aufgabe = new Aufgabe(titel, punkt, type, aufgabee);
         return aufgabenRepo.save(aufgabe);
     }
 

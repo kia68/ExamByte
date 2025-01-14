@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface AufgabenRepository {
     Aufgabe save(Aufgabe aufgabe);
-    Aufgabe findById(Long id);
+    Aufgabe findById(int id);
     List<Aufgabe> findAll();
     void delete(Aufgabe aufgabe);
 }

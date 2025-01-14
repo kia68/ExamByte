@@ -7,8 +7,9 @@ import java.util.List;
 public interface TestRepository {
 
 
+    Test findById(int id);
+
     public void save(Test test);
     public List<Test> findAll();
-
     public void deleteTest(Test test);
 }

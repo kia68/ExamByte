@@ -5,14 +5,10 @@ public class AufgabenForm {
     private Integer punkt;
     private String type;
     private String aufgabe;
-    private String antwort;
-
-    public AufgabenForm(String title, Integer punkt, String type, String aufgabe, String antwort) {
+    public AufgabenForm(String title, Integer punkt, String type) {
         this.title = title;
         this.punkt = punkt;
         this.type = type;
-        this.aufgabe = aufgabe;
-        this.antwort = antwort;
     }
 
     public String getTitle() {
@@ -47,11 +43,4 @@ public class AufgabenForm {
         this.aufgabe = aufgabe;
     }
 
-    public String getAntwort() {
-        return antwort;
-    }
-
-    public void setAntwort(String antwort) {
-        this.antwort = antwort;
-    }
 }

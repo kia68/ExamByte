@@ -12,6 +12,12 @@ public class TestRepoImpl implements TestRepository {
 
     @Override
     public List<Test> findAll() {return testList;}
+
+    @Override
+    public Test findById(int id) {
+        return testList.get(id);
+    }
+
     @Override
     public void save(Test test){
         testList.add(test);

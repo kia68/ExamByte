@@ -40,4 +40,21 @@ public class TestService {
     public void addAufgabe(Aufgabe aufgabe) {
         aufgabenRepo.save(aufgabe);
     }
+
+    public Test getTestById(int id) {
+        return testRepo.findById(id);
+    }
+
+    public Aufgabe getAufgabeById(int id) {
+        return aufgabenRepo.findById(id);
+    }
+
+    public void updateAufgabe(Aufgabe aufgabe) {
+        aufgabenRepo.save(aufgabe);
+    }
+
+    public void deleteAufgabeById(int id) {
+        Aufgabe a = aufgabenRepo.findById(id);
+        aufgabenRepo.delete(a);
+    }
 }

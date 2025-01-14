@@ -4,10 +4,12 @@ import java.time.LocalDateTime;
 
 public class Test {
 
+    private int id;
     private String name;
     private LocalDateTime startTime;
     private LocalDateTime endTime;
     private Aufgabe aufgabens;
+    private Abgabe abgabe;
 
     public Test(String name, LocalDateTime startTime, LocalDateTime endTime, Aufgabe aufgabens) {
         this.name = name;
@@ -47,5 +49,17 @@ public class Test {
 
     public void setAufgabens(Aufgabe aufgabens) {
         this.aufgabens = aufgabens;
+    }
+
+    public Abgabe getAbgabe() {
+        return abgabe;
+    }
+
+    public void setAbgabe(Abgabe abgabe) {
+        this.abgabe = abgabe;
+    }
+
+    public int getId() {
+        return id;
     }
 }
