@@ -34,8 +34,8 @@
 
 <div class="container mt-5">
   <h1>Aufgabe lösen</h1>
-
-  <form method="post" th:action="@{/aufgabe/submit}" th:object="${aufgabeForm}">
+<!--  /solve/{id}(id=${aufgabeForm.getId()})-->
+  <form method="post" th:action="@{/aufgabe}" th:object="${aufgabens}">
     <div class="mb-3">
       <label class="form-label" th:for="title">Titel der Aufgabe</label>
       <input type="text" class="form-control" th:field="*{title}" readonly>
@@ -53,7 +53,7 @@
 
     <div class="d-flex justify-content-between">
       <button type="submit" class="btn btn-success">Antwort Einreichen</button>
-      <a href="/tests" class="btn btn-secondary">Zurück zu den Tests</a>
+      <a href="/test" class="btn btn-secondary">Zurück zu den Tests</a>
     </div>
   </form>
 </div>

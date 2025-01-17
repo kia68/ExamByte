@@ -1,7 +1,7 @@
 package com.example.exambyte.applicationService;
 
 import com.example.exambyte.applicationService.serviceRepository.AufgabenRepository;
-import com.example.exambyte.domainLayer.model.Aufgabe;
+import com.example.exambyte.domainLayer.model.exam.Aufgabe;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

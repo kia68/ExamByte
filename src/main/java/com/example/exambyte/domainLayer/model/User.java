@@ -4,9 +4,10 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
 import java.util.Objects;
+import java.util.UUID;
 
 public class User {
-    private long id;
+    private UUID id;
     private String name;
     private Email email;
     private @DateTimeFormat(pattern = "dd.MM.yyyy") LocalDate birthday;

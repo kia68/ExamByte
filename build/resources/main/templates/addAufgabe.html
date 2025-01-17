@@ -36,7 +36,7 @@
 
 <div class="container mt-5">
 
-    <form method="post" th:action="@{/addAufgabe}" th:object="${aufgabenForm}">
+    <form method="post" th:action="@{/aufgabe/addAufgabe}" th:object="${aufgabenForm}">
         <div class="form-group row">
             <label for="aufgabeName" class="col-sm-2 col-form-label">Titel der Aufgabe</label>
             <div class="col-sm-10">
@@ -89,24 +89,6 @@
         </div>
     </form>
 
-<!--    <script>-->
-<!--        function toggleFields() {-->
-<!--            const type = document.getElementById("type").value;-->
-<!--            const multipleChoiceFields = document.getElementById("multipleChoiceFields");-->
-<!--            const textAnswerField = document.getElementById("textAnswerField");-->
-
-<!--            if (type === "MultipleChoice") {-->
-<!--                multipleChoiceFields.style.display = "block";-->
-<!--                textAnswerField.style.display = "none";-->
-<!--            } else if (type === "Text") {-->
-<!--                multipleChoiceFields.style.display = "none";-->
-<!--                textAnswerField.style.display = "block";-->
-<!--            } else {-->
-<!--                multipleChoiceFields.style.display = "none";-->
-<!--                textAnswerField.style.display = "none";-->
-<!--            }-->
-<!--        }-->
-<!--    </script>-->
 </div>
 </body>
 </html>

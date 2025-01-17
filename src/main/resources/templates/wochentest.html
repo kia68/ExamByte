@@ -49,12 +49,12 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each="aufgabe : ${aufgabens}">
-            <td th:text="${aufgabe.getTitle()}">
-                <a th:href="@{/aufgabe(id=${aufgabe.getAufgabe()})}" class="btn btn-primary">Aufgabentitel</a>
+        <tr th:each="aufgabe : ${test.getAufgabe()}">
+            <td th:text="${aufgabe.title}">
+                <a th:href="@{/aufgabe/{id}(id=${aufgabe.id})}" th:text="${aufgabe.title}" class="btn btn-primary">Aufgabentitel</a>
             </td>
-            <td th:text="${aufgabe.getPunkt()}">0</td>
-            <td th:text="${aufgabe.getType()}">Typ</td>
+            <td th:text="${aufgabe.punkt}">0</td>
+            <td th:text="${aufgabe.type}">Typ</td>
         </tr>
         </tbody>
     </table>

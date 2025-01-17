@@ -1,11 +1,13 @@
 package com.example.exambyte.persistence.repositories;
 
 import com.example.exambyte.applicationService.serviceRepository.AufgabenRepository;
-import com.example.exambyte.domainLayer.model.Aufgabe;
+import com.example.exambyte.domainLayer.model.exam.Aufgabe;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
+
 @Repository
 public class AufgabenRepoImpl implements AufgabenRepository {
     List<Aufgabe> aufgabenList = new ArrayList<>();
@@ -22,7 +24,7 @@ public class AufgabenRepoImpl implements AufgabenRepository {
     }
 
     @Override
-    public Aufgabe findById(int id) {
+    public Aufgabe findById(UUID id) {
         return null;
     }
 

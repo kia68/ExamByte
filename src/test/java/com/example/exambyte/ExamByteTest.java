@@ -2,7 +2,7 @@ package com.example.exambyte;
 
 import com.example.exambyte.domainLayer.model.Email;
 import com.example.exambyte.helper.WithMockOAuth2User;
-import com.example.exambyte.applicationService.TestService;
+import com.example.exambyte.applicationService.ExamService;
 import com.example.exambyte.domainLayer.model.User;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -28,7 +28,7 @@ class ExamByteTest {
     MockMvc mvc;
 
     @MockBean
-    TestService testService;
+    ExamService examService;
 
 
     @Test
@@ -69,7 +69,7 @@ class ExamByteTest {
     @DisplayName("Beim Get Request auf / enthält Model userList")
     void test03() throws Exception{
         mvc.perform(get("/"))
-                .andExpect(model().attribute("user", testService.userList()));
+                .andExpect(model().attribute("user", examService.userList()));
     }
 
     @Test
@@ -93,7 +93,7 @@ class ExamByteTest {
     @DisplayName("beim get request auf /tests enthäht model testList")
     void test06() throws Exception{
         mvc.perform(get("/tests"))
-                .andExpect(model().attribute("tests", testService.getTests()));
+                .andExpect(model().attribute("tests", examService.getTests()));
     }
 
     @Test
@@ -129,7 +129,7 @@ class ExamByteTest {
         Email email = new Email("test@aa.com");
         User user = new User(email);
         List mock = mock(List.class);
-        when(testService.userList()).thenReturn(mock);
+        when(examService.userList()).thenReturn(mock);
         mvc.perform(post("/")
                         .param("email", "test@aa.com")
                         .param("role", "student"));
@@ -157,7 +157,7 @@ class ExamByteTest {
     @DisplayName("Die /aufgabe ist für get request zeigt aufgaben an ")
     void test13() throws Exception{
         mvc.perform(get("/addAufgabe"))
-                .andExpect(model().attribute("aufgabe", testService.getAufgaben()));
+                .andExpect(model().attribute("aufgabe", examService.getAufgaben()));
     }
 
 

@@ -1,18 +1,27 @@
-package com.example.exambyte.controller;
+package com.example.exambyte.domainLayer.model.exam;
 
-public class AufgabenForm {
+
+import com.example.exambyte.domainLayer.model.antwort.Antwort;
+
+import java.util.ArrayList;
+import java.util.List;
+public class Aufgabe {
+
     private String title;
     private Integer punkt;
     private String type;
     private String beschreibung;
+    private List<Antwort> antwort = new ArrayList<>();
 
-
-    public AufgabenForm(String title, Integer punkt, String type, String beschreibung) {
+    public Aufgabe(String title, Integer punkt,
+                   String type, String beschreibung) {
         this.title = title;
         this.punkt = punkt;
         this.type = type;
         this.beschreibung = beschreibung;
     }
+
+
 
     public String getTitle() {
         return title;
@@ -36,6 +45,14 @@ public class AufgabenForm {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public List<Antwort> getAntwort() {
+        return antwort;
+    }
+
+    public void setAntwort(List<Antwort> antwort) {
+        this.antwort = antwort;
     }
 
     public String getBeschreibung() {

@@ -46,21 +46,18 @@
             <thead>
             <tr>
                 <th>Tests</th>
-                <th>Aufgaben</th>
                 <th>Zu den Tests</th>
                 <th>add Aufgaben</th>
             </tr>
             </thead>
             <tbody th:remove="all-but-first">
-            <tr th:each="test : ${tests}">
+            <tr th:each="test : ${tests}" >
                 <td>
                     <span th:text="${test.getName()}"> Example Test Number </span>
                 </td>
-                <td>
-                    <span th:text="${test.getAufgabens()}"> Example Aufgabe Number </span>
-                </td>
-                <td><a href="/aufgabe">Zu den Tests</a></td>
-                <td><a href="/addAufgabe">add aufgaben</a></td>
+<!--                /{id}(id=${test.id})-->
+                <td ><span th:text="${test.id}"></span><a  th:href="@{/wochentest/{id}(id=${test.id})}">Zu den Tests</a></td>
+                <td><a th:href="@{/aufgabe/addAufgabe}">add aufgaben</a></td>
                 <td>
                     <form>
                         <button type="submit" class="btn btn-primary"> Löschen</button>

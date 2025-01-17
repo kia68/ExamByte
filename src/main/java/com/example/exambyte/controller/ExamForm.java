@@ -1,23 +1,17 @@
-package com.example.exambyte.domainLayer.model;
+package com.example.exambyte.controller;
 
 import java.time.LocalDateTime;
 
-public class Test {
-
-    private int id;
+public class ExamForm {
     private String name;
     private LocalDateTime startTime;
     private LocalDateTime endTime;
-    private Aufgabe aufgabens;
-    private Abgabe abgabe;
 
-    public Test(String name, LocalDateTime startTime, LocalDateTime endTime, Aufgabe aufgabens) {
+    public ExamForm(String name, LocalDateTime startTime, LocalDateTime endTime) {
         this.name = name;
         this.startTime = startTime;
         this.endTime = endTime;
-        this.aufgabens = aufgabens;
     }
-
 
     public String getName() {
         return name;
@@ -26,6 +20,7 @@ public class Test {
     public void setName(String name) {
         this.name = name;
     }
+
 
     public LocalDateTime getStartTime() {
         return startTime;
@@ -41,25 +36,5 @@ public class Test {
 
     public void setEndTime(LocalDateTime endTime) {
         this.endTime = endTime;
-    }
-
-    public Aufgabe getAufgabens() {
-        return aufgabens;
-    }
-
-    public void setAufgabens(Aufgabe aufgabens) {
-        this.aufgabens = aufgabens;
-    }
-
-    public Abgabe getAbgabe() {
-        return abgabe;
-    }
-
-    public void setAbgabe(Abgabe abgabe) {
-        this.abgabe = abgabe;
-    }
-
-    public int getId() {
-        return id;
     }
 }
