@@ -53,14 +53,13 @@
             <tbody th:remove="all-but-first">
             <tr th:each="test : ${tests}" >
                 <td>
-                    <span th:text="${test.getName()}"> Example Test Number </span>
+                    <span th:text="${test.getName()}"> Example Testname</span>
                 </td>
-<!--                /{id}(id=${test.id})-->
-                <td ><span th:text="${test.id}"></span><a  th:href="@{/wochentest/{id}(id=${test.id})}">Zu den Tests</a></td>
-                <td><a th:href="@{/aufgabe/addAufgabe}">add aufgaben</a></td>
+                <td ><a  th:href="@{/wochentest/{id}(id=${test.id})}">Zu den Tests</a></td>
+                <td><a th:href="@{/aufgabe/addAufgabe(examId=${test.id})}">add aufgaben</a></td>
                 <td>
-                    <form>
-                        <button type="submit" class="btn btn-primary"> Löschen</button>
+                    <form th:action="@{/tests/delete/{id}(id=${test.id})}" method="post" >
+                        <button type="submit" class="btn btn-primary">Löschen</button>
                     </form>
                 </td>
             </tr>

@@ -18,47 +18,62 @@ public class AufgabeController {
         this.examService = examService;
     }
 
-    // Anzeigen aller Aufgaben
-    @GetMapping
-    public String showAllAufgaben(Model model, AufgabenForm aufgabenForm) {
-        model.addAttribute("aufgabenForm", examService.getAufgaben());
+    @GetMapping("/{examId}")
+    public String showAllAufgaben(Model model,@PathVariable UUID examId) {
+        model.addAttribute("aufgabenForm", examService.getAufgaben(examId));
+        model.addAttribute("examId", examId);
         return "aufgabe"; // Thymeleaf-Template aufgabe.html
     }
 
-    @GetMapping("/aufgabe/{id}")
-    public String showAufgabe(@RequestParam UUID id, Model model){
-        Aufgabe aufgabe = examService.getAufgabeById(id);
+    @GetMapping("/{examId}/{aufgabeId}")
+    public String showAufgabe(@PathVariable UUID examId,@PathVariable UUID aufgabeId, Model model){
+        Aufgabe aufgabe = examService.getAufgabeById(examId, aufgabeId);
         model.addAttribute("aufgabens", aufgabe);
+        System.out.println("Beschreibung: " + aufgabe.getBeschreibung());
+        System.out.println("titel: " + aufgabe.getTitle());
+
+        //model.addAttribute("examId", examId);
         return "aufgabe";
     }
 
     // Formular zum Hinzufügen einer neuen Aufgabe anzeigen
     @GetMapping("/addAufgabe")
-    public String showAddAufgabeForm(AufgabenForm aufgabenForm) {
+    public String showAddAufgabeForm(@RequestParam UUID examId, Model model) {
+        if (examId == null) {
+            throw new IllegalArgumentException("Exam ID must not be null");
+        }
+        model.addAttribute("examId", examId);
+        model.addAttribute("aufgabenForm", new AufgabenForm());
         return "addAufgabe"; // Thymeleaf-Template addAufgabe.html
     }
 
-    // Eine neue Aufgabe hinzufügen
     @PostMapping("/addAufgabe")
-    public String addAufgabe(AufgabenForm aufgabenForm) {
+    public String addAufgabe(@RequestParam UUID examId, AufgabenForm aufgabenForm) {
         Aufgabe aufgabe = new Aufgabe(
                 aufgabenForm.getTitle(),
                 aufgabenForm.getPunkt(),
                 aufgabenForm.getType(),
                 aufgabenForm.getBeschreibung()
         );
-        examService.addAufgabe(aufgabe);
+        examService.addAufgabeToExam(examId, aufgabe);
         System.out.println("Aufgabe added: " + aufgabe.getTitle());
         return "redirect:/";
     }
 
-//    // Formular zum Bearbeiten einer Aufgabe anzeigen
-//    @GetMapping("/edit/{id}")
-//    public String showEditAufgabeForm(@PathVariable int id, Model model) {
-//        Aufgabe aufgabe = testService.getAufgabeById(id); // Methode im TestService implementieren
-//        model.addAttribute("aufgabe", aufgabe);
-//        return "editAufgabe"; // Thymeleaf-Template editAufgabe.html
-//    }
+    @PostMapping("/{examId}/{aufgabeId}/delete")
+    public String deleteAufgabe(@PathVariable UUID examId, @PathVariable UUID aufgabeId) {
+        examService.deleteAufgabeById(examId, aufgabeId);
+        System.out.println("Aufgabe gelöscht mit ID: " + aufgabeId);
+        return "redirect:/aufgabe" + examId;
+    }
+
+    // Formular zum Bearbeiten einer Aufgabe anzeigen
+    @GetMapping("/edit/{id}")
+    public String showEditAufgabeForm(@PathVariable UUID examId,@PathVariable UUID aufgabeId, Model model) {
+        Aufgabe aufgabe = examService.getAufgabeById(examId,aufgabeId); // Methode im TestService implementieren
+        model.addAttribute("aufgabe", aufgabe);
+        return "editAufgabe"; // Thymeleaf-Template editAufgabe.html
+    }
 //
 //    // Änderungen an einer Aufgabe speichern
 //    @PostMapping("/edit/{id}")

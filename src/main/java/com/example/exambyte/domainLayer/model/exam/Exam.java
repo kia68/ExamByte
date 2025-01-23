@@ -1,7 +1,5 @@
 package com.example.exambyte.domainLayer.model.exam;
 
-import org.springframework.data.annotation.Id;
-
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,20 +7,25 @@ import java.util.UUID;
 
 public class Exam {
 
-    @Id
-    private UUID id;
+
+    private final UUID id;
     private String name;
     private LocalDateTime startTime;
     private LocalDateTime endTime;
-    private List<Aufgabe> aufgabe = new ArrayList<>();
+    private List<Aufgabe> aufgabe;
 
-    public Exam(
+    public Exam(UUID id,
                 String name,
                 LocalDateTime startTime,
-                LocalDateTime endTime) {
+                LocalDateTime endTime,
+                List<Aufgabe> aufgabe) {
+        this.id = UUID.randomUUID();
         this.name = name;
         this.startTime = startTime;
-        this.endTime = endTime;
+        this.aufgabe = aufgabe;
+    }
+    public Exam(String name){
+        this(UUID.randomUUID(), name,LocalDateTime.now(),LocalDateTime.now().plusWeeks(1), new ArrayList<>());
     }
 
     public String getName() {
@@ -42,16 +45,13 @@ public class Exam {
     }
 
     public LocalDateTime getEndTime() {
-        return endTime;
+        return startTime.plusWeeks(1);
     }
 
     public void setEndTime(LocalDateTime endTime) {
         this.endTime = endTime;
     }
 
-    public void setId(UUID id) {
-        this.id = id;
-    }
 
     public List<Aufgabe> getAufgabe() {
         return aufgabe;

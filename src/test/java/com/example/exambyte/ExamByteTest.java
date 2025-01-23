@@ -1,9 +1,7 @@
 package com.example.exambyte;
 
-import com.example.exambyte.domainLayer.model.Email;
-import com.example.exambyte.helper.WithMockOAuth2User;
 import com.example.exambyte.applicationService.ExamService;
-import com.example.exambyte.domainLayer.model.User;
+import com.example.exambyte.helper.WithMockOAuth2User;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,10 +11,10 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 
-import java.util.List;
+import java.util.UUID;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.mock;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
@@ -32,7 +30,8 @@ class ExamByteTest {
 
 
     @Test
-    @WithMockOAuth2User    @DisplayName("Die Startseite ist unter / erreichbar")
+    @WithMockOAuth2User
+    @DisplayName("Die Startseite ist unter / erreichbar")
     void load() throws Exception {
         MockHttpServletRequestBuilder requestBuilder = get("/");
         MvcResult resultActions = mvc.perform(requestBuilder)
@@ -64,13 +63,14 @@ class ExamByteTest {
                 .andExpect(view().name("home"));
     }
 
-    @Test
-    @WithMockOAuth2User
-    @DisplayName("Beim Get Request auf / enthält Model userList")
-    void test03() throws Exception{
-        mvc.perform(get("/"))
-                .andExpect(model().attribute("user", examService.userList()));
-    }
+
+//    @Test
+//    @WithMockOAuth2User
+//    @DisplayName("Beim Get Request auf / enthält Model userList")
+//    void test03() throws Exception{
+//        mvc.perform(get("/"))
+//                .andExpect(model().attribute("user", examService.userList()));
+//    }
 
     @Test
     @WithMockOAuth2User
@@ -93,7 +93,7 @@ class ExamByteTest {
     @DisplayName("beim get request auf /tests enthäht model testList")
     void test06() throws Exception{
         mvc.perform(get("/tests"))
-                .andExpect(model().attribute("tests", examService.getTests()));
+                .andExpect(model().attribute("tests", examService.getExam()));
     }
 
     @Test
@@ -122,19 +122,20 @@ class ExamByteTest {
                 .andExpect(view().name("redirect:/"));
     }
 
-    @Test
-    @WithMockOAuth2User
-    @DisplayName("mit Übergabe-Parameter wird es ins model hinzugefügt")
-    void test10() throws Exception{
-        Email email = new Email("test@aa.com");
-        User user = new User(email);
-        List mock = mock(List.class);
-        when(examService.userList()).thenReturn(mock);
-        mvc.perform(post("/")
-                        .param("email", "test@aa.com")
-                        .param("role", "student"));
-        verify(mock).add(user);
-    }
+//    @Disabled
+//    @Test
+//    @WithMockOAuth2User
+//    @DisplayName("mit Übergabe-Parameter wird es ins model hinzugefügt")
+//    void test10() throws Exception{
+//        Email email = new Email("test@aa.com");
+//        User user = new User(email);
+//        List mock = mock(List.class);
+//        when(examService.userList()).thenReturn(mock);
+//        mvc.perform(post("/")
+//                        .param("email", "test@aa.com")
+//                        .param("role", "student"));
+//        verify(mock).add(user);
+//    }
 
     @Test
     @WithMockOAuth2User
@@ -156,8 +157,9 @@ class ExamByteTest {
     @WithMockOAuth2User
     @DisplayName("Die /aufgabe ist für get request zeigt aufgaben an ")
     void test13() throws Exception{
+        UUID uuid = mock(UUID.class);
         mvc.perform(get("/addAufgabe"))
-                .andExpect(model().attribute("aufgabe", examService.getAufgaben()));
+                .andExpect(model().attribute("aufgabe", examService.getAufgaben(uuid)));
     }
 
 

@@ -1,0 +1,10 @@
+interface DatabaseBegriffDao
+class DatabaseBegriffRepository
+
+class DatabaseBegriff
+class DatabaseDefinition
+
+package org_springframework_data{
+ package repository {
+ interface CrudRepository
+ }

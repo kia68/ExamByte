@@ -37,17 +37,17 @@
 <!--  /solve/{id}(id=${aufgabeForm.getId()})-->
   <form method="post" th:action="@{/aufgabe}" th:object="${aufgabens}">
     <div class="mb-3">
-      <label class="form-label" th:for="title">Titel der Aufgabe</label>
+      <label class="form-label" >Titel der Aufgabe</label>
       <input type="text" class="form-control" th:field="*{title}" readonly>
     </div>
 
     <div class="mb-3">
-      <label class="form-label" th:for="aufgabe">Aufgabenbeschreibung</label>
-      <textarea class="form-control" th:field="*{aufgabe}" rows="5" readonly></textarea>
+      <label class="form-label" >Aufgabenbeschreibung</label>
+      <textarea class="form-control" th:field="*{beschreibung}" rows="5" readonly></textarea>
     </div>
 
     <div class="mb-3">
-      <label class="form-label" th:for="antwort">Ihre Antwort</label>
+      <label class="form-label" >Ihre Antwort</label>
       <textarea class="form-control" th:field="*{antwort}" rows="5" placeholder="Geben Sie Ihre Antwort hier ein..."></textarea>
     </div>
 

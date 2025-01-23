@@ -10,7 +10,8 @@ public interface ExamRepository {
 
     Exam findById(UUID id);
 
-    public void save(Exam test);
+    public void save(Exam exam);
     public List<Exam> findAll();
     public void deleteTest(Exam exam);
+
 }

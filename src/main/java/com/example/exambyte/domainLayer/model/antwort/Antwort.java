@@ -1,13 +1,12 @@
 package com.example.exambyte.domainLayer.model.antwort;
 
-import jakarta.persistence.Id;
 
 import java.util.Objects;
 import java.util.UUID;
 
 public class Antwort {
 
-    @Id
+    //github users
     private UUID id;
 
     private String antwortText;

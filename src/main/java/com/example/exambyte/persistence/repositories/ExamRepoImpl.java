@@ -10,28 +10,30 @@ import java.util.UUID;
 
 @Repository
 public class ExamRepoImpl implements ExamRepository {
-    List<Exam> testList = new ArrayList<>();
+    List<Exam> examList = new ArrayList<>();
 
     @Override
-    public List<Exam> findAll() {return testList;}
+    public List<Exam> findAll() {return examList;}
 
 
     @Override
     public Exam findById(UUID id) {
-        return testList.stream()
+        return examList.stream()
                 .filter(exam -> exam.getId().equals(id))
                 .findFirst()
                 .orElse(null);
     }
 
+    //inn save muss man fachlicheID speichern
     @Override
-    public void save(Exam test){
-        testList.add(test);
+    public void save(Exam exam){
+        examList.removeIf(existingExam -> existingExam.getId().equals(exam.getId()));
+        examList.add(exam);
     }
 
     @Override
     public void deleteTest(Exam test){
-        testList.remove(test);
+        examList.remove(test);
     }
 
 }

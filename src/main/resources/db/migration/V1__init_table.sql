@@ -1,4 +1,4 @@
-CREATE TABLE test (
+CREATE TABLE exam (
     id serial PRIMARY KEY,
     name VARCHAR(300) NOT NULL,
     start_time date NOT NULL,
@@ -6,12 +6,12 @@ CREATE TABLE test (
 );
 CREATE TABLE aufgabe (
     id serial PRIMARY KEY,
-    test_id integer NOT NULL,
+    exam_id integer NOT NULL,
     title VARCHAR(300) NOT NULL,
     punkt integer NOT NULL,
     type VARCHAR(50) NOT NULL,
     beschreibung TEXT,
-    FOREIGN KEY (test_id) REFERENCES test(id) ON DELETE CASCADE
+    FOREIGN KEY (exam_id) REFERENCES exam(id) ON DELETE CASCADE
 );
 
 

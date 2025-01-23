@@ -16,7 +16,7 @@ public class ArchUnitTest {
     @ArchTest
     ArchRule noMemberShoudBeAutoWired = GeneralCodingRules.NO_CLASSES_SHOULD_USE_FIELD_INJECTION;
     @ArchTest
-    ArchRule alleKlasseSindAnnotiert = classes()
+    ArchRule alleKlasseInapplicationServiceSindAnnotiert = classes()
             .that()
             .resideInAnyPackage("..applicationService..")
             .should()
@@ -44,7 +44,13 @@ public class ArchUnitTest {
             .areAnnotatedWith(Controller.class);
 
     @ArchTest
-    ArchRule nameTest = classes().that().resideInAnyPackage("..applicationService..").and().areAnnotatedWith(Service.class).should().haveSimpleNameEndingWith("Service");
+    ArchRule nameTest = classes()
+            .that()
+            .resideInAnyPackage("..applicationService..")
+            .and()
+            .areAnnotatedWith(Service.class)
+            .should()
+            .haveSimpleNameEndingWith("Service");
 
     @ArchTest
     ArchRule onionTest = onionArchitecture()

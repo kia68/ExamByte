@@ -7,12 +7,6 @@ public class AufgabenForm {
     private String beschreibung;
 
 
-    public AufgabenForm(String title, Integer punkt, String type, String beschreibung) {
-        this.title = title;
-        this.punkt = punkt;
-        this.type = type;
-        this.beschreibung = beschreibung;
-    }
 
     public String getTitle() {
         return title;

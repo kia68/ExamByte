@@ -1,11 +1,8 @@
 package com.example.exambyte.applicationService;
 
-import com.example.exambyte.applicationService.serviceRepository.AufgabenRepository;
 import com.example.exambyte.applicationService.serviceRepository.ExamRepository;
-import com.example.exambyte.applicationService.serviceRepository.UserRepository;
 import com.example.exambyte.domainLayer.model.exam.Aufgabe;
 import com.example.exambyte.domainLayer.model.exam.Exam;
-import com.example.exambyte.domainLayer.model.User;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,48 +11,57 @@ import java.util.UUID;
 @Service
 public class ExamService {
 
-    private final ExamRepository testRepo;
-    private final AufgabenRepository aufgabenRepo;
-    private final UserRepository userRepo;
+    private final ExamRepository examRepository;
 
 
-    public ExamService(ExamRepository testRepo, AufgabenRepository aufgabenRepo, UserRepository userRepo) {
-        this.testRepo = testRepo;
-        this.aufgabenRepo = aufgabenRepo;
-        this.userRepo = userRepo;
+
+    public ExamService(ExamRepository testRepo) {
+        this.examRepository = testRepo;
+
     }
 
-    public List<User> userList(){
-        return userRepo.findAll();
+    public void addExam(Exam exam){
+        examRepository.save(exam);
     }
-    public void addTest(Exam test){
-        testRepo.save(test);
+    public List<Exam> getExam(){
+        return examRepository.findAll();
     }
-    public List<Exam> getTests(){
-        return testRepo.findAll();
-    }
-    public List<Aufgabe> getAufgaben(){
-        return aufgabenRepo.findAll();
+    public Exam getExamById(UUID id) {
+        return examRepository.findById(id);
     }
 
-    public void addAufgabe(Aufgabe aufgabe) {
-        aufgabenRepo.save(aufgabe);
+    public void addAufgabeToExam(UUID examId, Aufgabe aufgabe) {
+        Exam exam = examRepository.findById(examId);
+        if (exam != null) {
+            exam.getAufgabe().add(aufgabe);
+            examRepository.save(exam);
+        } else {
+            throw new IllegalArgumentException("Exam not found with ID: " + examId);
+        }
+    }
+    public Aufgabe getAufgabeById(UUID examId, UUID aufgabeId) {
+        Exam exam = examRepository.findById(examId);
+        Aufgabe aufgabe = exam.getAufgabe().stream()
+                .filter(a->a.getId().equals(aufgabeId))
+                .findFirst()
+                .orElse(null);
+        return aufgabe;
     }
 
-    public Exam getTestById(UUID id) {
-        return testRepo.findById(id);
+    public void updateAufgabe(UUID examId, Aufgabe aufgabe) {
+        Exam exam = examRepository.findById(examId);
+        exam.getAufgabe().removeIf(a->a.getId().equals(aufgabe.getId()));
+        exam.getAufgabe().add(aufgabe);
     }
 
-    public Aufgabe getAufgabeById(UUID id) {
-        return aufgabenRepo.findById(id);
+    public void deleteAufgabeById(UUID examId, UUID aufgabeId) {
+        Exam exam = examRepository.findById(examId);
+        exam.getAufgabe().removeIf(a->a.getId().equals(aufgabeId));
     }
 
-    public void updateAufgabe(Aufgabe aufgabe) {
-        aufgabenRepo.save(aufgabe);
+    public List<Aufgabe> getAufgaben(UUID examId){
+        Exam exam = examRepository.findById(examId);
+        return exam.getAufgabe();
     }
 
-    public void deleteAufgabeById(UUID id) {
-        Aufgabe a = aufgabenRepo.findById(id);
-        aufgabenRepo.delete(a);
-    }
 }

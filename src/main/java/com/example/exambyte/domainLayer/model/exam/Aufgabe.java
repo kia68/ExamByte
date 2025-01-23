@@ -5,16 +5,19 @@ import com.example.exambyte.domainLayer.model.antwort.Antwort;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
+
 public class Aufgabe {
 
+    private UUID id;
     private String title;
     private Integer punkt;
     private String type;
     private String beschreibung;
     private List<Antwort> antwort = new ArrayList<>();
-
     public Aufgabe(String title, Integer punkt,
                    String type, String beschreibung) {
+        this.id = UUID.randomUUID();
         this.title = title;
         this.punkt = punkt;
         this.type = type;
@@ -22,6 +25,13 @@ public class Aufgabe {
     }
 
 
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
 
     public String getTitle() {
         return title;
