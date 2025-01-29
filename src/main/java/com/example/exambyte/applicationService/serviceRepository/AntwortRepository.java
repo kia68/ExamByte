@@ -12,5 +12,7 @@ public interface AntwortRepository {
 
     public void save(Antwort antwort);
     public List<Antwort> findAll();
-    public void deleteTest(Antwort antwort);
+    public void delete(Antwort antwort);
+    public List<Antwort> findByGithubLogin(String gitHubLogin);
+
 }

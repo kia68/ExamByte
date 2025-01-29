@@ -1,7 +1,10 @@
 package com.example.exambyte.controller;
 
+import com.example.exambyte.applicationService.AntwortService;
 import com.example.exambyte.applicationService.ExamService;
+import com.example.exambyte.domainLayer.model.antwort.Antwort;
 import com.example.exambyte.domainLayer.model.exam.Aufgabe;
+import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -13,9 +16,11 @@ import java.util.UUID;
 public class AufgabeController {
 
     private final ExamService examService;
+    private final AntwortService antwortService;
 
-    public AufgabeController(ExamService examService) {
+    public AufgabeController(ExamService examService, AntwortService antwortService) {
         this.examService = examService;
+        this.antwortService = antwortService;
     }
 
     @GetMapping("/{examId}")
@@ -25,18 +30,8 @@ public class AufgabeController {
         return "aufgabe"; // Thymeleaf-Template aufgabe.html
     }
 
-    @GetMapping("/{examId}/{aufgabeId}")
-    public String showAufgabe(@PathVariable UUID examId,@PathVariable UUID aufgabeId, Model model){
-        Aufgabe aufgabe = examService.getAufgabeById(examId, aufgabeId);
-        model.addAttribute("aufgabens", aufgabe);
-        System.out.println("Beschreibung: " + aufgabe.getBeschreibung());
-        System.out.println("titel: " + aufgabe.getTitle());
-
-        //model.addAttribute("examId", examId);
-        return "aufgabe";
-    }
-
     // Formular zum Hinzufügen einer neuen Aufgabe anzeigen
+
     @GetMapping("/addAufgabe")
     public String showAddAufgabeForm(@RequestParam UUID examId, Model model) {
         if (examId == null) {
@@ -44,9 +39,8 @@ public class AufgabeController {
         }
         model.addAttribute("examId", examId);
         model.addAttribute("aufgabenForm", new AufgabenForm());
-        return "addAufgabe"; // Thymeleaf-Template addAufgabe.html
+        return "addAufgabe";
     }
-
     @PostMapping("/addAufgabe")
     public String addAufgabe(@RequestParam UUID examId, AufgabenForm aufgabenForm) {
         Aufgabe aufgabe = new Aufgabe(
@@ -60,20 +54,41 @@ public class AufgabeController {
         return "redirect:/";
     }
 
-    @PostMapping("/{examId}/{aufgabeId}/delete")
-    public String deleteAufgabe(@PathVariable UUID examId, @PathVariable UUID aufgabeId) {
-        examService.deleteAufgabeById(examId, aufgabeId);
-        System.out.println("Aufgabe gelöscht mit ID: " + aufgabeId);
-        return "redirect:/aufgabe" + examId;
+    @GetMapping("/{examId}/{aufgabeId}")
+    public String showAufgabe(@PathVariable UUID examId,
+                              @PathVariable UUID aufgabeId, Model model){
+        Aufgabe aufgabe = examService.getAufgabeById(examId, aufgabeId);
+        model.addAttribute("aufgabens", aufgabe);
+        return "aufgabe";
     }
 
-    // Formular zum Bearbeiten einer Aufgabe anzeigen
-    @GetMapping("/edit/{id}")
-    public String showEditAufgabeForm(@PathVariable UUID examId,@PathVariable UUID aufgabeId, Model model) {
-        Aufgabe aufgabe = examService.getAufgabeById(examId,aufgabeId); // Methode im TestService implementieren
-        model.addAttribute("aufgabe", aufgabe);
-        return "editAufgabe"; // Thymeleaf-Template editAufgabe.html
+    @PostMapping("/{examId}/{aufgabeId}/submit")
+    public String submitAntwort(@PathVariable UUID examId,
+                                @PathVariable UUID aufgabeId,
+                                @RequestParam String antwortText,
+                                OAuth2AuthenticationToken auth){
+        String gitHubLogin = auth.getPrincipal().getAttribute("login");
+
+        Antwort antwort = new Antwort(aufgabeId, gitHubLogin, antwortText);
+        antwortService.addAntwortToAufgabe(aufgabeId, gitHubLogin,antwort);
+        System.out.println("Antwort gespeichert: " + antwortText);
+        return "redirect:/wochentest/" + examId;
     }
+
+//    @PostMapping("/{examId}/{aufgabeId}/delete")
+//    public String deleteAufgabe(@PathVariable UUID examId, @PathVariable UUID aufgabeId) {
+//        examService.deleteAufgabeById(examId, aufgabeId);
+//        System.out.println("Aufgabe gelöscht mit ID: " + aufgabeId);
+//        return "redirect:/aufgabe" + examId;
+//    }
+//
+//    // Formular zum Bearbeiten einer Aufgabe anzeigen
+//    @GetMapping("/edit/{id}")
+//    public String showEditAufgabeForm(@PathVariable UUID examId,@PathVariable UUID aufgabeId, Model model) {
+//        Aufgabe aufgabe = examService.getAufgabeById(examId,aufgabeId); // Methode im TestService implementieren
+//        model.addAttribute("aufgabe", aufgabe);
+//        return "editAufgabe"; // Thymeleaf-Template editAufgabe.html
+//    }
 //
 //    // Änderungen an einer Aufgabe speichern
 //    @PostMapping("/edit/{id}")

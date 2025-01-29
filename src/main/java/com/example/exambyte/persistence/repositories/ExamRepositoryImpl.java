@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Repository
-public class ExamRepoImpl implements ExamRepository {
+public class  ExamRepositoryImpl implements ExamRepository {
     List<Exam> examList = new ArrayList<>();
 
     @Override

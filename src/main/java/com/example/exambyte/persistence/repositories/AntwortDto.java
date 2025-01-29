@@ -1,4 +1,10 @@
 package com.example.exambyte.persistence.repositories;
 
-public record AntwortDto(String inhalt) {
+import org.springframework.data.annotation.Id;
+
+import java.util.UUID;
+
+public record AntwortDto(@Id Integer id,
+                         UUID fachId,
+                         String inhalt) {
 }

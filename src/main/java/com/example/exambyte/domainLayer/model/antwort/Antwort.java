@@ -1,28 +1,47 @@
 package com.example.exambyte.domainLayer.model.antwort;
 
 
-import java.util.Objects;
 import java.util.UUID;
 
 public class Antwort {
 
     //github users
-    private UUID id;
+    private UUID antwortId;
+    private UUID aufgabeId;
 
+    private  String githubUser;
     private String antwortText;
 
-    public Antwort(String antwortText) {
+    public Antwort(UUID aufgabeId, String githubUser, String antwortText) {
+        this.antwortId = UUID.randomUUID();
+        this.aufgabeId = aufgabeId;
+        this.githubUser = githubUser;
         this.antwortText = antwortText;
     }
 
-    public UUID getId() {
-        return id;
+    public UUID getAntwortId() {
+        return antwortId;
     }
 
-    public void setId(UUID id) {
-        this.id = id;
+    public void setAntwortId(UUID antwortId) {
+        this.antwortId = antwortId;
     }
 
+    public UUID getAufgabeId() {
+        return aufgabeId;
+    }
+
+    public void setAufgabeId(UUID aufgabeId) {
+        this.aufgabeId = aufgabeId;
+    }
+
+    public String getGithubUser() {
+        return githubUser;
+    }
+
+    public void setGithubUser(String githubUser) {
+        this.githubUser = githubUser;
+    }
 
     public String getAntwortText() {
         return antwortText;
@@ -32,9 +51,5 @@ public class Antwort {
         this.antwortText = antwortText;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
-    }
 
 }
