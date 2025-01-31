@@ -1,5 +1,7 @@
+
 CREATE TABLE exam (
     id serial PRIMARY KEY,
+    fach_id UUID NOT NULL,
     name VARCHAR(300) NOT NULL,
     start_time date NOT NULL,
     end_time date NOT NULL

@@ -35,7 +35,7 @@
 <div class="container mt-5">
   <h1>Aufgabe lösen</h1>
 <!--  /solve/{id}(id=${aufgabeForm.getId()})-->
-  <form method="post" th:action="@{/aufgabe}" th:object="${aufgabens}">
+  <form method="post" th:action="@{/aufgabe/{examId}/{aufgabeId}/submit(examId=${examId}, aufgabeId=${aufgabeId})}" th:object="${aufgabens}" >
     <div class="mb-3">
       <label class="form-label" >Titel der Aufgabe</label>
       <input type="text" class="form-control" th:field="*{title}" readonly>
@@ -48,8 +48,10 @@
 
     <div class="mb-3">
       <label class="form-label" >Ihre Antwort</label>
-      <textarea class="form-control" th:field="*{antwort}" rows="5" placeholder="Geben Sie Ihre Antwort hier ein..."></textarea>
+      <textarea class="form-control" name="antwortText" rows="5" placeholder="Geben Sie Ihre Antwort hier ein..."></textarea>
     </div>
+
+    <input type="hidden" name="login" th:value="${session.gitHubLogin}">
 
     <div class="d-flex justify-content-between">
       <button type="submit" class="btn btn-success">Antwort Einreichen</button>

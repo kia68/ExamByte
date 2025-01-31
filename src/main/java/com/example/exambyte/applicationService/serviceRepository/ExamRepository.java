@@ -2,7 +2,7 @@ package com.example.exambyte.applicationService.serviceRepository;
 
 import com.example.exambyte.domainLayer.model.exam.Exam;
 
-import java.util.List;
+import java.util.Collection;
 import java.util.UUID;
 
 public interface ExamRepository {
@@ -11,7 +11,7 @@ public interface ExamRepository {
     Exam findById(UUID id);
 
     public void save(Exam exam);
-    public List<Exam> findAll();
+    public Collection<Exam> findAll();
     public void deleteTest(Exam exam);
 
 }

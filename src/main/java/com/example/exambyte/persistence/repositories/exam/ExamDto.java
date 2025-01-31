@@ -1,4 +1,4 @@
-package com.example.exambyte.persistence.repositories;
+package com.example.exambyte.persistence.repositories.exam;
 
 import com.example.exambyte.domainLayer.model.exam.Aufgabe;
 import org.springframework.data.annotation.Id;

@@ -1,4 +1,4 @@
-package com.example.exambyte.persistence.repositories;
+package com.example.exambyte.persistence.repositories.antwort;
 
 import org.springframework.data.repository.CrudRepository;
 

@@ -1,4 +1,4 @@
-package com.example.exambyte.persistence.repositories;
+package com.example.exambyte.persistence.repositories.antwort;
 
 import com.example.exambyte.applicationService.serviceRepository.AntwortRepository;
 import com.example.exambyte.domainLayer.model.antwort.Antwort;

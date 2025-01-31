@@ -5,6 +5,7 @@ import com.example.exambyte.domainLayer.model.exam.Aufgabe;
 import com.example.exambyte.domainLayer.model.exam.Exam;
 import org.springframework.stereotype.Service;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.UUID;
 
@@ -23,7 +24,7 @@ public class ExamService {
     public void addExam(Exam exam){
         examRepository.save(exam);
     }
-    public List<Exam> getExam(){
+    public Collection<Exam> getExam(){
         return examRepository.findAll();
     }
     public Exam getExamById(UUID id) {

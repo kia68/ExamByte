@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.example.exambyte.ArchUnitTest" tests="7" skipped="0" failures="1" errors="0" timestamp="2025-01-23T11:33:56" hostname="KIAVASHS-AIR.local" time="0.803">
+<testsuite name="com.example.exambyte.ArchUnitTest" tests="7" skipped="0" failures="1" errors="0" timestamp="2025-01-30T17:01:17" hostname="MacBookAir.local" time="0.764">
   <properties/>
-  <testcase name="noMemberShoudBeAutoWired" classname="com.example.exambyte.ArchUnitTest" time="0.718"/>
-  <testcase name="alleKlasseSindAnnotiert" classname="com.example.exambyte.ArchUnitTest" time="0.004">
+  <testcase name="noMemberShoudBeAutoWired" classname="com.example.exambyte.ArchUnitTest" time="0.684"/>
+  <testcase name="alleKlasseInapplicationServiceSindAnnotiert" classname="com.example.exambyte.ArchUnitTest" time="0.005">
     <failure message="java.lang.AssertionError: Architecture Violation [Priority: MEDIUM] - Rule 'classes that reside in any package ['..applicationService..'] should be annotated with @Service' was violated (2 times):&#10;Class &lt;com.example.exambyte.applicationService.serviceRepository.AntwortRepository&gt; is not annotated with @Service in (AntwortRepository.java:0)&#10;Class &lt;com.example.exambyte.applicationService.serviceRepository.ExamRepository&gt; is not annotated with @Service in (ExamRepository.java:0)" type="java.lang.AssertionError">java.lang.AssertionError: Architecture Violation [Priority: MEDIUM] - Rule 'classes that reside in any package ['..applicationService..'] should be annotated with @Service' was violated (2 times):
 Class &lt;com.example.exambyte.applicationService.serviceRepository.AntwortRepository&gt; is not annotated with @Service in (AntwortRepository.java:0)
 Class &lt;com.example.exambyte.applicationService.serviceRepository.ExamRepository&gt; is not annotated with @Service in (ExamRepository.java:0)
@@ -18,10 +18,10 @@ Class &lt;com.example.exambyte.applicationService.serviceRepository.ExamReposito
   </testcase>
   <testcase name="DieVariablenInControllerKlassenSolltenPrivateSein" classname="com.example.exambyte.ArchUnitTest" time="0.0"/>
   <testcase name="NurControllerKlassenDuerfenAufAndereControllerKlassenZugreifen" classname="com.example.exambyte.ArchUnitTest" time="0.001"/>
-  <testcase name="NurControllerKlassenDuerfenAufAndereControllerKlassenZugreifenn" classname="com.example.exambyte.ArchUnitTest" time="0.013"/>
+  <testcase name="NurControllerKlassenDuerfenAufAndereControllerKlassenZugreifenn" classname="com.example.exambyte.ArchUnitTest" time="0.014"/>
   <testcase name="nameTest" classname="com.example.exambyte.ArchUnitTest" time="0.001"/>
-  <testcase name="onionTest" classname="com.example.exambyte.ArchUnitTest" time="0.065"/>
-  <system-out><![CDATA[12:33:56.212 [Test worker] INFO com.tngtech.archunit.core.PluginLoader -- Detected Java version 21.0.1
+  <testcase name="onionTest" classname="com.example.exambyte.ArchUnitTest" time="0.058"/>
+  <system-out><![CDATA[18:01:17.165 [Test worker] INFO com.tngtech.archunit.core.PluginLoader -- Detected Java version 21.0.1
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
