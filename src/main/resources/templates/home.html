@@ -55,10 +55,10 @@
                 <td>
                     <span th:text="${test.getName()}"> Example Testname</span>
                 </td>
-                <td ><a  th:href="@{/wochentest/{id}(id=${test.id})}">Zu den Tests</a></td>
-                <td><a th:href="@{/aufgabe/addAufgabe(examId=${test.id})}">add aufgaben</a></td>
+                <td ><a  th:href="@{/wochentest/{id}(id=${test.fachId})}">Zu den Tests</a></td>
+                <td><a th:href="@{/aufgabe/addAufgabe(examId=${test.fachId})}">add aufgaben</a></td>
                 <td>
-                    <form th:action="@{/tests/delete/{id}(id=${test.id})}" method="post" >
+                    <form th:action="@{/tests/delete/{id}(id=${test.fachId})}" method="post" >
                         <button type="submit" class="btn btn-primary">Löschen</button>
                     </form>
                 </td>

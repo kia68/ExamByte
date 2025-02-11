@@ -37,7 +37,7 @@
 <div class="container mt-5">
 
     <form method="post" th:action="@{/aufgabe/addAufgabe}" th:object="${aufgabenForm}">
-        <input type="hidden" name="examId" th:value="${examId}">
+        <input type="hidden" name="fachId" th:value="${examId}">
 
         <div class="form-group row">
             <label for="aufgabeName" class="col-sm-2 col-form-label">Titel der Aufgabe</label>

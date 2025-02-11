@@ -5,26 +5,24 @@ import java.util.UUID;
 
 public class Antwort {
 
-    //github users
-    private UUID antwortId;
+    private UUID fachId;
     private UUID aufgabeId;
-
     private  String githubUser;
     private String antwortText;
 
     public Antwort(UUID aufgabeId, String githubUser, String antwortText) {
-        this.antwortId = UUID.randomUUID();
+        this.fachId = UUID.randomUUID();
         this.aufgabeId = aufgabeId;
         this.githubUser = githubUser;
         this.antwortText = antwortText;
     }
 
-    public UUID getAntwortId() {
-        return antwortId;
+    public UUID getFachId() {
+        return fachId;
     }
 
-    public void setAntwortId(UUID antwortId) {
-        this.antwortId = antwortId;
+    public void setFachId(UUID fachId) {
+        this.fachId = fachId;
     }
 
     public UUID getAufgabeId() {

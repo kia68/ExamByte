@@ -10,9 +10,12 @@ public interface AntwortRepository {
 
     Antwort findById(UUID id);
 
-    public void save(Antwort antwort);
+    void save(Antwort antwort);
     public List<Antwort> findAll();
-    public void delete(Antwort antwort);
-    public List<Antwort> findByGithubLogin(String gitHubLogin);
 
+
+
+    List<Antwort> findByGithubLogin(String gitHubLogin);
+
+    //    public void delete(Antwort antwort);
 }

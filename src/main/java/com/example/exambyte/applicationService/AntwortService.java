@@ -4,8 +4,6 @@ import com.example.exambyte.applicationService.serviceRepository.AntwortReposito
 import com.example.exambyte.domainLayer.model.antwort.Antwort;
 import org.springframework.stereotype.Service;
 
-import java.util.UUID;
-
 @Service
 public class AntwortService {
     private final AntwortRepository antwortRepository;
@@ -14,9 +12,8 @@ public class AntwortService {
         this.antwortRepository = antwortRepository;
     }
 
-    public void addAntwortToAufgabe(UUID aufgabeId, String gitHublogin, Antwort antwort){
-        Antwort antwort1 = new Antwort(aufgabeId, gitHublogin, antwort.getAntwortText());
-        antwortRepository.save(antwort1);
+    public void addAntwortToAufgabe(Antwort antwort){
+        antwortRepository.save(antwort);
     }
 
 

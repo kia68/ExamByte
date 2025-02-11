@@ -33,6 +33,7 @@ public class ExamService {
 
     public void addAufgabeToExam(UUID examId, Aufgabe aufgabe) {
         Exam exam = examRepository.findById(examId);
+        System.out.println("exam ID "+exam.getFachId());
         if (exam != null) {
             exam.getAufgabe().add(aufgabe);
             examRepository.save(exam);

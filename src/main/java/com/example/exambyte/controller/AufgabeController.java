@@ -27,10 +27,8 @@ public class AufgabeController {
     public String showAllAufgaben(Model model,@PathVariable UUID examId) {
         model.addAttribute("aufgabenForm", examService.getAufgaben(examId));
         model.addAttribute("examId", examId);
-        return "aufgabe"; // Thymeleaf-Template aufgabe.html
+        return "aufgabe";
     }
-
-    // Formular zum Hinzufügen einer neuen Aufgabe anzeigen
 
     @GetMapping("/addAufgabe")
     public String showAddAufgabeForm(@RequestParam UUID examId, Model model) {
@@ -42,14 +40,14 @@ public class AufgabeController {
         return "addAufgabe";
     }
     @PostMapping("/addAufgabe")
-    public String addAufgabe(@RequestParam UUID examId, AufgabenForm aufgabenForm) {
+    public String addAufgabe(@RequestParam UUID fachId, AufgabenForm aufgabenForm) {
         Aufgabe aufgabe = new Aufgabe(
                 aufgabenForm.getTitle(),
                 aufgabenForm.getPunkt(),
                 aufgabenForm.getType(),
                 aufgabenForm.getBeschreibung()
         );
-        examService.addAufgabeToExam(examId, aufgabe);
+        examService.addAufgabeToExam(fachId, aufgabe);
         System.out.println("Aufgabe added: " + aufgabe.getTitle());
         return "redirect:/";
     }
@@ -70,7 +68,7 @@ public class AufgabeController {
         String gitHubLogin = auth.getPrincipal().getAttribute("login");
 
         Antwort antwort = new Antwort(aufgabeId, gitHubLogin, antwortText);
-        antwortService.addAntwortToAufgabe(aufgabeId, gitHubLogin,antwort);
+        antwortService.addAntwortToAufgabe(antwort);
         System.out.println("Antwort gespeichert: " + antwortText);
         return "redirect:/wochentest/" + examId;
     }

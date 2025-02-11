@@ -9,7 +9,6 @@ import java.util.UUID;
 
 @Repository
 public class  ExamRepositoryImpl implements ExamRepository {
-//    List<Exam> examList = new ArrayList<>();
     private final ExamDataRepository examDataRepository;
 
     public ExamRepositoryImpl(ExamDataRepository examDataRepository) {
@@ -17,11 +16,11 @@ public class  ExamRepositoryImpl implements ExamRepository {
     }
 
     private Exam toExam(ExamDto dto){
-        return new Exam(dto.fachId(), dto.name(), dto.startTime(), dto.endTime(), dto.aufgabeList());
+        return new Exam(dto.fachId(), dto.name(), dto.startTime(), dto.endTime());
     }
 
     private ExamDto toExamDto(Exam exam) {
-        return new ExamDto(null, exam.getId(), exam.getName(), exam.getStartTime(),exam.getEndTime(), exam.getAufgabe());
+        return new ExamDto(null,exam.getFachId(), exam.getName(), exam.getStartTime(),exam.getEndTime());
     }
 
 
@@ -49,9 +48,9 @@ public class  ExamRepositoryImpl implements ExamRepository {
         examDataRepository.save(examDto);
     }
 
-    @Override
-    public void deleteTest(Exam test){
-        examDataRepository.findByFachId(test.getId());
-    }
+//    @Override
+//    public void deleteTest(Exam test){
+//        examDataRepository.findByFachId(test.getId());
+//    }
 
 }

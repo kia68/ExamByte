@@ -8,5 +8,8 @@ import java.util.UUID;
 @Table("antwort")
 public record AntwortDto(@Id Integer id,
                          UUID fachId,
-                         String inhalt) {
+                         UUID aufgabeId,
+
+                         String githubUser,
+                         String antwortText) {
 }

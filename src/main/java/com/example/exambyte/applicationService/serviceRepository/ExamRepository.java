@@ -8,10 +8,10 @@ import java.util.UUID;
 public interface ExamRepository {
 
 
-    Exam findById(UUID id);
+    public Exam findById(UUID id);
 
     public void save(Exam exam);
     public Collection<Exam> findAll();
-    public void deleteTest(Exam exam);
+//    public void deleteTest(Exam exam);
 
 }

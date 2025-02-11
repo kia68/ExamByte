@@ -1,14 +1,13 @@
 package com.example.exambyte.domainLayer.model.exam;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
 public class Exam {
 
 
-    private final UUID id;
+    private UUID fachId;
     private String name;
     private LocalDateTime startTime;
     private LocalDateTime endTime;
@@ -17,15 +16,15 @@ public class Exam {
     public Exam(UUID id,
                 String name,
                 LocalDateTime startTime,
-                LocalDateTime endTime,
-                List<Aufgabe> aufgabe) {
-        this.id = UUID.randomUUID();
+                LocalDateTime endTime
+                ) {
+        this.fachId = id != null ? id : UUID.randomUUID();
         this.name = name;
         this.startTime = startTime;
         this.aufgabe = aufgabe;
     }
     public Exam(String name){
-        this(UUID.randomUUID(), name,LocalDateTime.now(),LocalDateTime.now().plusWeeks(1), new ArrayList<>());
+        this(UUID.randomUUID(), name,LocalDateTime.now(),LocalDateTime.now().plusWeeks(1));
     }
 
     public String getName() {
@@ -61,9 +60,8 @@ public class Exam {
         this.aufgabe = aufgabe;
     }
 
-    public UUID getId() {
-        return id;
+    public UUID getFachId() {
+        return fachId;
     }
-
 
 }

@@ -51,7 +51,7 @@
         <tbody>
         <tr th:each="aufgabe : ${exam.getAufgabe()}">
             <td> <span th:text="${aufgabe.title}"></span>
-                <a th:href="@{/aufgabe/{examId}/{aufgabeId}(examId=${exam.id}, aufgabeId=${aufgabe.id})}">Details</a>
+                <a th:href="@{/aufgabe/{examId}/{aufgabeId}(examId=${exam.fachId}, aufgabeId=${aufgabe.id})}">Details</a>
             </td>
             <td th:text="${aufgabe.punkt}">0</td>
             <td th:text="${aufgabe.type}">Typ</td>
