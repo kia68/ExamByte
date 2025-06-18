@@ -5,9 +5,11 @@ import com.example.exambyte.domainLayer.model.exam.Aufgabe;
 import com.example.exambyte.domainLayer.model.exam.Exam;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Service
 public class ExamService {
@@ -24,9 +26,25 @@ public class ExamService {
     public void addExam(Exam exam){
         examRepository.save(exam);
     }
-    public Collection<Exam> getExam(){
-        return examRepository.findAll();
+//    public Collection<Exam> getExam(){
+//        return examRepository.findAll();
+//    }
+
+    public Collection<Exam> getExam() {
+        return examRepository.findAll().stream()
+                .collect(Collectors.collectingAndThen(
+                        Collectors.toMap(Exam::getName, e -> e, (e1, e2) -> e1),
+                        map -> new ArrayList<>(map.values())
+                ));
     }
+
+
+//    public Map<String, List<Exam>> getGroupedExams() {
+//        return examRepository.findAll().stream()
+//                .collect(Collectors.groupingBy(Exam::getName));
+//    }
+
+
     public Exam getExamById(UUID id) {
         return examRepository.findById(id);
     }

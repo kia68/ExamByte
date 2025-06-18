@@ -35,6 +35,7 @@ public class AufgabeController {
         if (examId == null) {
             throw new IllegalArgumentException("Exam ID must not be null");
         }
+        System.out.println("showAddAufgabeForm examID" + examId);
         model.addAttribute("examId", examId);
         model.addAttribute("aufgabenForm", new AufgabenForm());
         return "addAufgabe";
@@ -49,6 +50,9 @@ public class AufgabeController {
         );
         examService.addAufgabeToExam(fachId, aufgabe);
         System.out.println("Aufgabe added: " + aufgabe.getTitle());
+        System.out.println("showAddAufgabeForm examID" + fachId);
+        System.out.println("AddAufgabe aufgabeId" + aufgabe.getId());
+
         return "redirect:/";
     }
 

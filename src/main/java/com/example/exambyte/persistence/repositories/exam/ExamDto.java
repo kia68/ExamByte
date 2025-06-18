@@ -10,7 +10,6 @@ public record ExamDto(@Id Integer id,
                       UUID fachId,
                       String name,
                       LocalDateTime startTime,
-                      LocalDateTime endTime
-                      ) {
+                      LocalDateTime endTime) {
 
 }

@@ -5,6 +5,7 @@ import com.example.exambyte.domainLayer.model.exam.Exam;
 import org.springframework.stereotype.Repository;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.UUID;
 
 @Repository
@@ -32,13 +33,25 @@ public class  ExamRepositoryImpl implements ExamRepository {
                 .toList();
     }
 
-
     @Override
     public Exam findById(UUID id) {
-        return examDataRepository.findByFachId(id)
-                .map(this::toExam)
-                .orElse(null);
+        List<ExamDto> results = examDataRepository.findByFachId(id);
+
+        if (results.isEmpty()) return null;
+        if (results.size() > 1) {
+            // Optional: Logging oder Exception
+            System.err.println("WARNUNG: Mehrere Exams mit gleicher fachId gefunden!");
+        }
+
+        return toExam(results.get(0)); // oder ggf. bessere Auswahl
     }
+
+//    @Override
+//    public Exam findById(UUID id) {
+//        return examDataRepository.findByFachId(id)
+//                .map(this::toExam)
+//                .orElse(null);
+//    }
     //inn save muss man fachlicheID speichern
 
     @Override

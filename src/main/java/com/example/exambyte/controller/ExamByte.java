@@ -41,6 +41,7 @@ public class ExamByte {
         Exam test = new Exam(name);
         examService.addExam(test);
         System.out.println("Test added: " + test.getName());
+        System.out.println("Test added examId: " + test.getFachId());
         return "redirect:/";
     }
     @GetMapping("/wochentest/{id}")
