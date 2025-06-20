@@ -17,23 +17,17 @@ public class Exam {
     public Exam(UUID id,
                 String name,
                 LocalDateTime startTime,
-                LocalDateTime endTime
+                LocalDateTime endTime,
+                List<Aufgabe> aufgabe
                 ) {
         this.fachId = id != null ? id : UUID.randomUUID();
         this.name = name;
         this.startTime = startTime;
-        this.aufgabe = new ArrayList<>();
+        this.endTime = endTime;
+        this.aufgabe = aufgabe != null ? aufgabe : new ArrayList<>();
     }
-//    public Exam(String name){
-//        this(UUID.randomUUID(), name,LocalDateTime.now(),LocalDateTime.now().plusWeeks(1));
-//    }
-
     public Exam(String name){
-        this.fachId = UUID.randomUUID();
-        this.name = name;
-        this.startTime = LocalDateTime.now();
-        this.endTime = LocalDateTime.now().plusWeeks(1);
-//        this.aufgabe = new ArrayList<>();
+        this(UUID.randomUUID(), name,LocalDateTime.now(),LocalDateTime.now().plusWeeks(1), new ArrayList<>());
     }
 
     public String getName() {

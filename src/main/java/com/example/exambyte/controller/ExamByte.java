@@ -47,6 +47,7 @@ public class ExamByte {
     @GetMapping("/wochentest/{id}")
     public String showWeekTest(@PathVariable UUID id, Model model) {
         Exam exam = examService.getExamById(id);
+        System.out.println("aufgaben: "+ exam.getFachId());
         model.addAttribute("exam", exam);
         //model.addAttribute("tests", testService.getTests());
         return "wochentest";

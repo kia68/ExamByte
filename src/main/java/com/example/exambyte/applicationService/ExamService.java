@@ -49,16 +49,21 @@ public class ExamService {
         return examRepository.findById(id);
     }
 
-    public void addAufgabeToExam(UUID examId, Aufgabe aufgabe) {
-        Exam exam = examRepository.findById(examId);
-        System.out.println("exam ID "+exam.getFachId());
-        if (exam != null) {
-            exam.getAufgabe().add(aufgabe);
-            examRepository.save(exam);
-        } else {
-            throw new IllegalArgumentException("Exam not found with ID: " + examId);
-        }
-    }
+//    public void addAufgabeToExam(UUID examId, Aufgabe aufgabe) {
+//        Exam exam = examRepository.findById(examId);
+//        System.out.println("exam ID "+exam.getFachId());
+//        if (exam != null) {
+//            exam.getAufgabe().add(aufgabe);
+//            examRepository.save(exam);
+//        } else {
+//            throw new IllegalArgumentException("Exam not found with ID: " + examId);
+//        }
+//    }
+public void addAufgabeToExam(UUID examId, Aufgabe aufgabe) {
+    aufgabe.setExamId(examId); // wichtig!
+    examRepository.saveAufgabe(aufgabe);
+}
+
     public Aufgabe getAufgabeById(UUID examId, UUID aufgabeId) {
         Exam exam = examRepository.findById(examId);
         Aufgabe aufgabe = exam.getAufgabe().stream()

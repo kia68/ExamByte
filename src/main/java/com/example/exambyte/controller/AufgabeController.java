@@ -43,12 +43,14 @@ public class AufgabeController {
     @PostMapping("/addAufgabe")
     public String addAufgabe(@RequestParam UUID fachId, AufgabenForm aufgabenForm) {
         Aufgabe aufgabe = new Aufgabe(
+                null,
+                null,
                 aufgabenForm.getTitle(),
                 aufgabenForm.getPunkt(),
                 aufgabenForm.getType(),
                 aufgabenForm.getBeschreibung()
         );
-        examService.addAufgabeToExam(fachId, aufgabe);
+        examService.addAufgabeToExam(aufgabenForm.getExamId(), aufgabe);
         System.out.println("Aufgabe added: " + aufgabe.getTitle());
         System.out.println("showAddAufgabeForm examID" + fachId);
         System.out.println("AddAufgabe aufgabeId" + aufgabe.getId());
