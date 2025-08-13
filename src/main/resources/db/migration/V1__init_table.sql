@@ -1,7 +1,7 @@
 CREATE TABLE exam
 (
     id         serial PRIMARY KEY,
-    fach_id    UUID,
+    fach_id    UUID NOT NULL unique ,
     name       VARCHAR(300) NOT NULL,
     start_time timestamp    NOT NULL,
     end_time   timestamp    NOT NULL
@@ -9,13 +9,14 @@ CREATE TABLE exam
 CREATE TABLE aufgabe
 (
     id           UUID PRIMARY KEY,
-    exam_id      INTEGER,
+    fach_id      UUID,
+    exam_id      UUID,
     title        VARCHAR(300) NOT NULL,
     punkt        integer      NOT NULL,
     type         VARCHAR(50)  NOT NULL,
     beschreibung TEXT,
     constraint fk_exam
-        foreign key (exam_id) references exam (id)
+        foreign key (exam_id) references exam (fach_id)
 );
 
 

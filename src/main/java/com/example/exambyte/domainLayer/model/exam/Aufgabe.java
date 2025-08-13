@@ -6,14 +6,16 @@ import java.util.UUID;
 public class Aufgabe {
 
     private UUID id;
+    private UUID examId;
     private String title;
     private Integer punkt;
     private String type;
     private String beschreibung;
-//    private List<Antwort> antwort = new ArrayList<>();
-    public Aufgabe(String title, Integer punkt,
+
+    public Aufgabe(UUID id,UUID examId, String title, Integer punkt,
                    String type, String beschreibung) {
-        this.id = UUID.randomUUID();
+        this.id = id;
+        this.examId = examId;
         this.title = title;
         this.punkt = punkt;
         this.type = type;
@@ -53,13 +55,9 @@ public class Aufgabe {
         this.type = type;
     }
 
-//    public List<Antwort> getAntwort() {
-//        return antwort;
-//    }
-//
-//    public void setAntwort(List<Antwort> antwort) {
-//        this.antwort = antwort;
-//    }
+    public UUID getExamId() {
+        return examId;
+    }
 
     public String getBeschreibung() {
         return beschreibung;
@@ -67,5 +65,9 @@ public class Aufgabe {
 
     public void setBeschreibung(String beschreibung) {
         this.beschreibung = beschreibung;
+    }
+
+    public void setExamId(UUID examId) {
+        this.examId = examId;
     }
 }

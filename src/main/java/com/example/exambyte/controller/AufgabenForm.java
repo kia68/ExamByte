@@ -1,6 +1,10 @@
 package com.example.exambyte.controller;
 
+import java.util.UUID;
+
 public class AufgabenForm {
+    private UUID id;
+    private UUID examId;
     private String title;
     private Integer punkt;
     private String type;
@@ -38,5 +42,21 @@ public class AufgabenForm {
 
     public void setBeschreibung(String beschreibung) {
         this.beschreibung = beschreibung;
+    }
+
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
+    public UUID getExamId() {
+        return examId;
+    }
+
+    public void setExamId(UUID examId) {
+        this.examId = examId;
     }
 }

@@ -3,44 +3,86 @@ package com.example.exambyte.applicationService;
 import com.example.exambyte.applicationService.serviceRepository.ExamRepository;
 import com.example.exambyte.domainLayer.model.exam.Aufgabe;
 import com.example.exambyte.domainLayer.model.exam.Exam;
+import com.example.exambyte.persistence.repositories.exam.AufgabeDataRepository;
+import com.example.exambyte.persistence.repositories.exam.AufgabeDto;
+import com.example.exambyte.persistence.repositories.exam.ExamDataRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Service
 public class ExamService {
 
     private final ExamRepository examRepository;
+    private final AufgabeDataRepository aufgabeDataRepository;
+    private final ExamDataRepository examDataRepository;
 
 
-
-    public ExamService(ExamRepository testRepo) {
+    public ExamService(ExamRepository testRepo, AufgabeDataRepository aufgabeDataRepository, ExamDataRepository examDataRepository) {
         this.examRepository = testRepo;
-
+        this.aufgabeDataRepository = aufgabeDataRepository;
+        this.examDataRepository = examDataRepository;
     }
 
     public void addExam(Exam exam){
         examRepository.save(exam);
     }
-    public Collection<Exam> getExam(){
-        return examRepository.findAll();
+//    public Collection<Exam> getExam(){
+//        return examRepository.findAll();
+//    }
+
+    public Collection<Exam> getExam() {
+        return examRepository.findAll().stream()
+                .collect(Collectors.collectingAndThen(
+                        Collectors.toMap(Exam::getName, e -> e, (e1, e2) -> e1),
+                        map -> new ArrayList<>(map.values())
+                ));
     }
+
+
+//    public Map<String, List<Exam>> getGroupedExams() {
+//        return examRepository.findAll().stream()
+//                .collect(Collectors.groupingBy(Exam::getName));
+//    }
+
+
     public Exam getExamById(UUID id) {
         return examRepository.findById(id);
     }
 
-    public void addAufgabeToExam(UUID examId, Aufgabe aufgabe) {
-        Exam exam = examRepository.findById(examId);
-        System.out.println("exam ID "+exam.getFachId());
-        if (exam != null) {
-            exam.getAufgabe().add(aufgabe);
-            examRepository.save(exam);
-        } else {
-            throw new IllegalArgumentException("Exam not found with ID: " + examId);
-        }
-    }
+//    public void addAufgabeToExam(UUID examId, Aufgabe aufgabe) {
+//        Exam exam = examRepository.findById(examId);
+//        System.out.println("exam ID "+exam.getFachId());
+//        if (exam != null) {
+//            exam.getAufgabe().add(aufgabe);
+//            examRepository.save(exam);
+//        } else {
+//            throw new IllegalArgumentException("Exam not found with ID: " + examId);
+//        }
+//    }
+public void addAufgabeToExam(UUID examId, Aufgabe aufgabe) {
+    aufgabe.setExamId(examId); // wichtig!
+
+
+
+    AufgabeDto dto = new AufgabeDto(
+            null,
+            examId,
+            aufgabe.getTitle(),
+            aufgabe.getPunkt(),
+            aufgabe.getType(),
+            aufgabe.getBeschreibung()
+    );
+//    aufgabeDataRepository.findByExamId(examId).add(dto);
+    aufgabeDataRepository.save(dto);
+//    Exam exam = examRepository.findById(examId);
+//    exam.getAufgabe().add(aufgabe);
+}
+
     public Aufgabe getAufgabeById(UUID examId, UUID aufgabeId) {
         Exam exam = examRepository.findById(examId);
         Aufgabe aufgabe = exam.getAufgabe().stream()
@@ -65,5 +107,4 @@ public class ExamService {
         Exam exam = examRepository.findById(examId);
         return exam.getAufgabe();
     }
-
 }

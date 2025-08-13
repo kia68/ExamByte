@@ -25,9 +25,9 @@ public class AufgabeController {
 
     @GetMapping("/{examId}")
     public String showAllAufgaben(Model model,@PathVariable UUID examId) {
-        model.addAttribute("aufgabenForm", examService.getAufgaben(examId));
+        model.addAttribute("exam", examService.getExamById(examId));
         model.addAttribute("examId", examId);
-        return "aufgabe";
+        return "wochentest";
     }
 
     @GetMapping("/addAufgabe")
@@ -35,21 +35,27 @@ public class AufgabeController {
         if (examId == null) {
             throw new IllegalArgumentException("Exam ID must not be null");
         }
+        System.out.println("showAddAufgabeForm examID : " + examId);
         model.addAttribute("examId", examId);
         model.addAttribute("aufgabenForm", new AufgabenForm());
         return "addAufgabe";
     }
     @PostMapping("/addAufgabe")
-    public String addAufgabe(@RequestParam UUID fachId, AufgabenForm aufgabenForm) {
+    public String addAufgabe(@RequestParam UUID examId,@ModelAttribute AufgabenForm aufgabenForm) {
         Aufgabe aufgabe = new Aufgabe(
+                null,
+                examId,
                 aufgabenForm.getTitle(),
                 aufgabenForm.getPunkt(),
                 aufgabenForm.getType(),
                 aufgabenForm.getBeschreibung()
         );
-        examService.addAufgabeToExam(fachId, aufgabe);
+        examService.addAufgabeToExam(examId, aufgabe);
         System.out.println("Aufgabe added: " + aufgabe.getTitle());
-        return "redirect:/";
+        System.out.println("showAddAufgabeForm examID" + examId);
+        System.out.println("AddAufgabe aufgabeId" + aufgabe.getId());
+
+        return "redirect:/aufgabe/" + examId;
     }
 
     @GetMapping("/{examId}/{aufgabeId}")
@@ -57,6 +63,8 @@ public class AufgabeController {
                               @PathVariable UUID aufgabeId, Model model){
         Aufgabe aufgabe = examService.getAufgabeById(examId, aufgabeId);
         model.addAttribute("aufgabens", aufgabe);
+        model.addAttribute("examId", examId);
+        model.addAttribute("aufgabeId", aufgabeId);
         return "aufgabe";
     }
 
