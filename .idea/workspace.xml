@@ -4,68 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e1c5ee78-4c07-4421-9f8c-b2e2ced2c35d" name="Changes" comment="home und add aufgaben sind besser, aber zu den Test muss korrigiert werden">
-      <change afterPath="$PROJECT_DIR$/.idea/data_source_mapping.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db/migration/V2__uuid_default.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10.2/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10.2/checksums/sha1-checksums.bin" afterDir="false" />
+    <list default="true" id="e1c5ee78-4c07-4421-9f8c-b2e2ced2c35d" name="Changes" comment="daten können in DB gespeichert werden und sieht man in DB Console">
       <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10.2/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10.2/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10.2/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10.2/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10.2/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/exambyte/applicationService/ExamService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/exambyte/applicationService/ExamService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/exambyte/controller/AufgabeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/exambyte/controller/AufgabeController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/exambyte/controller/ExamByte.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/exambyte/controller/ExamByte.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/exambyte/domainLayer/model/exam/Aufgabe.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/exambyte/domainLayer/model/exam/Aufgabe.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/exambyte/domainLayer/model/exam/Exam.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/exambyte/domainLayer/model/exam/Exam.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/exambyte/persistence/repositories/exam/AufgabeDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/exambyte/persistence/repositories/exam/AufgabeDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/exambyte/persistence/repositories/exam/ExamDataRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/exambyte/persistence/repositories/exam/ExamDataRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/exambyte/persistence/repositories/exam/ExamRepositoryImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/exambyte/persistence/repositories/exam/ExamRepositoryImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/test/com/example/exambyte/ArchUnitTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/test/com/example/exambyte/ExamByteTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/test/com/example/exambyte/ExambyteApplicationTests.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/test/com/example/exambyte/helper/SomeRule.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/test/com/example/exambyte/helper/WithMockOAuth2User.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/test/com/example/exambyte/helper/WithOAuth2UserSecurityContextFactory.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/com.example.exambyte.ExamByteTest.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/css/base-style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/css/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/js/report.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/packages/com.example.exambyte.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/addAufgabe.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/addAufgabe.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/aufgabe.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/aufgabe.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/wochentest.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/wochentest.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-com.example.exambyte.ExamByteTest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/AufgabeController.class.uniqueId0" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/AufgabeController.class.uniqueId0" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileTestJava/compileTransaction/stash-dir/ExamByteTest.class.uniqueId0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileTestJava/previous-compilation-data.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/feedback.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/feedback2.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/exambyte/applicationService/ExamService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/exambyte/applicationService/ExamService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/exambyte/controller/AufgabeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/exambyte/controller/AufgabeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/exambyte/controller/ExamByte.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/exambyte/controller/ExamByte.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/exambyte/domainLayer/model/exam/Aufgabe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/exambyte/domainLayer/model/exam/Aufgabe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/exambyte/domainLayer/model/exam/Exam.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/exambyte/domainLayer/model/exam/Exam.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/exambyte/persistence/repositories/exam/AufgabeDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/exambyte/persistence/repositories/exam/AufgabeDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/exambyte/persistence/repositories/exam/ExamDataRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/exambyte/persistence/repositories/exam/ExamDataRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/exambyte/persistence/repositories/exam/ExamRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/exambyte/persistence/repositories/exam/ExamRepositoryImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/addAufgabe.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/addAufgabe.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/aufgabe.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/aufgabe.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/wochentest.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/wochentest.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,7 +123,7 @@
     "WebServerToolWindowFactoryState": "false",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "3a55dbd0",
+    "git-widget-placeholder": "892f89b6",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/kiavashemami/Library/Mobile Documents/com~apple~CloudDocs/Uni/Propra2/2024/ExamByte/src/main/resources/db/migration",
@@ -552,7 +497,7 @@
       <workItem from="1750696534737" duration="3509000" />
       <workItem from="1751874239223" duration="9149000" />
       <workItem from="1755069696822" duration="228000" />
-      <workItem from="1755070021772" duration="18038000" />
+      <workItem from="1755070021772" duration="19399000" />
     </task>
     <task id="LOCAL-00001" summary="GitHub als externen Authentifizierungsprovider eingebunden">
       <option name="closed" value="true" />
@@ -666,7 +611,15 @@
       <option name="project" value="LOCAL" />
       <updated>1750260909368</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="daten können in DB gespeichert werden und sieht man in DB Console">
+      <option name="closed" value="true" />
+      <created>1755110023081</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1755110023082</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -720,7 +673,8 @@
     <MESSAGE value="Antwort Klasse hinzugefügt und submitAntwort in controller funktioniert" />
     <MESSAGE value="Flyway und DatenBank bearbeiten werden" />
     <MESSAGE value="home und add aufgaben sind besser, aber zu den Test muss korrigiert werden" />
-    <option name="LAST_COMMIT_MESSAGE" value="home und add aufgaben sind besser, aber zu den Test muss korrigiert werden" />
+    <MESSAGE value="daten können in DB gespeichert werden und sieht man in DB Console" />
+    <option name="LAST_COMMIT_MESSAGE" value="daten können in DB gespeichert werden und sieht man in DB Console" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
