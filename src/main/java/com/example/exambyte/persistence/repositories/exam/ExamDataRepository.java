@@ -13,5 +13,5 @@ public interface ExamDataRepository extends CrudRepository<ExamDto, UUID> {
 
     ExamDto save(ExamDto exam);
 
-    List<ExamDto> findByFachId(UUID id);
+    ExamDto findByFachId(UUID id);
 }

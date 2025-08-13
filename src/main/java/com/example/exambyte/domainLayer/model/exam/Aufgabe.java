@@ -14,7 +14,7 @@ public class Aufgabe {
 
     public Aufgabe(UUID id,UUID examId, String title, Integer punkt,
                    String type, String beschreibung) {
-        this.id = id != null ? id : UUID.randomUUID();
+        this.id = id;
         this.examId = examId;
         this.title = title;
         this.punkt = punkt;

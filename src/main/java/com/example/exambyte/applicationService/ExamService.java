@@ -3,6 +3,9 @@ package com.example.exambyte.applicationService;
 import com.example.exambyte.applicationService.serviceRepository.ExamRepository;
 import com.example.exambyte.domainLayer.model.exam.Aufgabe;
 import com.example.exambyte.domainLayer.model.exam.Exam;
+import com.example.exambyte.persistence.repositories.exam.AufgabeDataRepository;
+import com.example.exambyte.persistence.repositories.exam.AufgabeDto;
+import com.example.exambyte.persistence.repositories.exam.ExamDataRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -15,12 +18,14 @@ import java.util.stream.Collectors;
 public class ExamService {
 
     private final ExamRepository examRepository;
+    private final AufgabeDataRepository aufgabeDataRepository;
+    private final ExamDataRepository examDataRepository;
 
 
-
-    public ExamService(ExamRepository testRepo) {
+    public ExamService(ExamRepository testRepo, AufgabeDataRepository aufgabeDataRepository, ExamDataRepository examDataRepository) {
         this.examRepository = testRepo;
-
+        this.aufgabeDataRepository = aufgabeDataRepository;
+        this.examDataRepository = examDataRepository;
     }
 
     public void addExam(Exam exam){
@@ -61,7 +66,21 @@ public class ExamService {
 //    }
 public void addAufgabeToExam(UUID examId, Aufgabe aufgabe) {
     aufgabe.setExamId(examId); // wichtig!
-    examRepository.saveAufgabe(aufgabe);
+
+
+
+    AufgabeDto dto = new AufgabeDto(
+            null,
+            examId,
+            aufgabe.getTitle(),
+            aufgabe.getPunkt(),
+            aufgabe.getType(),
+            aufgabe.getBeschreibung()
+    );
+//    aufgabeDataRepository.findByExamId(examId).add(dto);
+    aufgabeDataRepository.save(dto);
+//    Exam exam = examRepository.findById(examId);
+//    exam.getAufgabe().add(aufgabe);
 }
 
     public Aufgabe getAufgabeById(UUID examId, UUID aufgabeId) {
@@ -88,5 +107,4 @@ public void addAufgabeToExam(UUID examId, Aufgabe aufgabe) {
         Exam exam = examRepository.findById(examId);
         return exam.getAufgabe();
     }
-
 }

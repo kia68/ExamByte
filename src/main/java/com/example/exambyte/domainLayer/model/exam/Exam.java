@@ -8,7 +8,7 @@ import java.util.UUID;
 public class Exam {
 
 
-    private UUID fachId;
+    private UUID examId;
     private String name;
     private LocalDateTime startTime;
     private LocalDateTime endTime;
@@ -20,7 +20,7 @@ public class Exam {
                 LocalDateTime endTime,
                 List<Aufgabe> aufgabe
                 ) {
-        this.fachId = id != null ? id : UUID.randomUUID();
+        this.examId = id != null ? id : UUID.randomUUID();
         this.name = name;
         this.startTime = startTime;
         this.endTime = endTime;
@@ -63,8 +63,8 @@ public class Exam {
         this.aufgabe = aufgabe;
     }
 
-    public UUID getFachId() {
-        return fachId;
+    public UUID getExamId() {
+        return examId;
     }
 
 }

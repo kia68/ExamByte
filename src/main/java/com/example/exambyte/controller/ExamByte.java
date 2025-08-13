@@ -41,13 +41,13 @@ public class ExamByte {
         Exam test = new Exam(name);
         examService.addExam(test);
         System.out.println("Test added: " + test.getName());
-        System.out.println("Test added examId: " + test.getFachId());
+        System.out.println("Test added examId: " + test.getExamId());
         return "redirect:/";
     }
     @GetMapping("/wochentest/{id}")
     public String showWeekTest(@PathVariable UUID id, Model model) {
         Exam exam = examService.getExamById(id);
-        System.out.println("aufgaben: "+ exam.getFachId());
+        System.out.println("aufgaben: "+ exam.getExamId());
         model.addAttribute("exam", exam);
         //model.addAttribute("tests", testService.getTests());
         return "wochentest";
