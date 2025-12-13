@@ -7,27 +7,30 @@ import java.util.UUID;
 
 public class Exam {
 
-
     private UUID examId;
     private String name;
     private LocalDateTime startTime;
     private LocalDateTime endTime;
+    private LocalDateTime publishDate;
     private List<Aufgabe> aufgabe;
 
     public Exam(UUID id,
-                String name,
-                LocalDateTime startTime,
-                LocalDateTime endTime,
-                List<Aufgabe> aufgabe
-                ) {
+            String name,
+            LocalDateTime startTime,
+            LocalDateTime endTime,
+            LocalDateTime publishDate,
+            List<Aufgabe> aufgabe) {
         this.examId = id != null ? id : UUID.randomUUID();
         this.name = name;
         this.startTime = startTime;
         this.endTime = endTime;
+        this.publishDate = publishDate;
         this.aufgabe = aufgabe != null ? aufgabe : new ArrayList<>();
     }
-    public Exam(String name){
-        this(UUID.randomUUID(), name,LocalDateTime.now(),LocalDateTime.now().plusWeeks(1), new ArrayList<>());
+
+    public Exam(String name) {
+        this(UUID.randomUUID(), name, LocalDateTime.now(), LocalDateTime.now().plusWeeks(1),
+                LocalDateTime.now().plusWeeks(2), new ArrayList<>());
     }
 
     public String getName() {
@@ -47,13 +50,24 @@ public class Exam {
     }
 
     public LocalDateTime getEndTime() {
-        return startTime.plusWeeks(1);
+        return endTime;
     }
 
     public void setEndTime(LocalDateTime endTime) {
         this.endTime = endTime;
     }
 
+    public LocalDateTime getPublishDate() {
+        return publishDate;
+    }
+
+    public void setPublishDate(LocalDateTime publishDate) {
+        this.publishDate = publishDate;
+    }
+
+    public boolean isResultPublished() {
+        return LocalDateTime.now().isAfter(publishDate);
+    }
 
     public List<Aufgabe> getAufgabe() {
         return aufgabe;

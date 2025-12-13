@@ -1,0 +1,8 @@
+ALTER TABLE exam ADD COLUMN publish_date TIMESTAMP;
+
+ALTER TABLE aufgabe ADD COLUMN lösung TEXT;
+ALTER TABLE aufgabe ADD COLUMN optionen TEXT;
+ALTER TABLE aufgabe ADD COLUMN erklärung TEXT;
+
+ALTER TABLE antwort ADD COLUMN punkte INTEGER;
+ALTER TABLE antwort ADD COLUMN feedback TEXT;

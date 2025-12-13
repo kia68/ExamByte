@@ -12,7 +12,7 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Repository
-public class  ExamRepositoryImpl implements ExamRepository {
+public class ExamRepositoryImpl implements ExamRepository {
     private final ExamDataRepository examDataRepository;
     private final AufgabeDataRepository aufgabeDataRepository;
 
@@ -33,14 +33,9 @@ public class  ExamRepositoryImpl implements ExamRepository {
     public Exam findById(UUID id) {
         ExamDto examDto = examDataRepository.findByFachId(id);
 
-//        if (results.isEmpty()) return null;
-//        if (results.size() > 1) {
-//            // Optional: Logging oder Exception
-//            System.err.println("WARNUNG: Mehrere Exams mit gleicher fachId gefunden!");
-//        }
-
-//        ExamDto examDto = results.get(0);
-//        ExamDto exam = examDataRepository.save(examDto);
+        if (examDto == null) {
+            return null;
+        }
         Exam exam = toExam(examDto);
 
         List<Aufgabe> aufgaben = aufgabeDataRepository.findByExamId(id)
@@ -50,22 +45,22 @@ public class  ExamRepositoryImpl implements ExamRepository {
         exam.setAufgabe(aufgaben);
         return exam;
 
-//        return toExam(results.get(0)); // oder ggf. bessere Auswahl
+        // return toExam(results.get(0)); // oder ggf. bessere Auswahl
     }
-    private Exam toExam(ExamDto dto){
-//        List<Aufgabe> aufgabes = aufgabeDataRepository.findByFachId(dto.fachId())
-//                .stream()
-//                .map(this::toAufgabe)
-//                .toList();
-        return new Exam(dto.fachId(), dto.name(), dto.startTime(), dto.endTime(), new ArrayList<>());
+
+    private Exam toExam(ExamDto dto) {
+        return new Exam(dto.fachId(), dto.name(), dto.startTime(), dto.endTime(), dto.publishDate(), new ArrayList<>());
     }
 
     private Aufgabe toAufgabe(AufgabeDto aufgabeDto) {
-        return new Aufgabe(aufgabeDto.id(),aufgabeDto.examId(),aufgabeDto.title(), aufgabeDto.punkt(), aufgabeDto.type(), aufgabeDto.beschreibung());
+        return new Aufgabe(aufgabeDto.id(), aufgabeDto.examId(), aufgabeDto.title(), aufgabeDto.punkt(),
+                aufgabeDto.type(), aufgabeDto.beschreibung(), aufgabeDto.loesung(), aufgabeDto.optionen(),
+                aufgabeDto.erklaerung());
     }
 
     private ExamDto toExamDto(Exam exam) {
-        return new ExamDto(null,exam.getExamId(), exam.getName(), exam.getStartTime(),exam.getEndTime());
+        return new ExamDto(null, exam.getExamId(), exam.getName(), exam.getStartTime(), exam.getEndTime(),
+                exam.getPublishDate());
     }
 
     private AufgabeDto toAufgabeDto(Aufgabe aufgabe) {
@@ -75,8 +70,10 @@ public class  ExamRepositoryImpl implements ExamRepository {
                 aufgabe.getTitle(),
                 aufgabe.getPunkt(),
                 aufgabe.getType(),
-                aufgabe.getBeschreibung()
-        );
+                aufgabe.getBeschreibung(),
+                aufgabe.getLoesung(),
+                aufgabe.getOptionen(),
+                aufgabe.getErklaerung());
     }
 
     @Override
@@ -89,34 +86,20 @@ public class  ExamRepositoryImpl implements ExamRepository {
                     aufgabe.getTitle(),
                     aufgabe.getPunkt(),
                     aufgabe.getType(),
-                    aufgabe.getBeschreibung()
-            );
-        }
-        else {
+                    aufgabe.getBeschreibung(),
+                    aufgabe.getLoesung(),
+                    aufgabe.getOptionen(),
+                    aufgabe.getErklaerung());
+        } else {
             dto = toAufgabeDto(aufgabe);
         }
         aufgabeDataRepository.save(dto);
     }
 
-
-
-//    @Override
-//    public Exam findById(UUID id) {
-//        return examDataRepository.findByFachId(id)
-//                .map(this::toExam)
-//                .orElse(null);
-//    }
-    //inn save muss man fachlicheID speichern
-
     @Override
-    public void save(Exam exam){
-        //ExamDto exist = examDataRepository.findByFachId(exam.getFachId());
+    public void save(Exam exam) {
+        // ExamDto exist = examDataRepository.findByFachId(exam.getFachId());
         examDataRepository.save(toExamDto(exam));
     }
-
-//    @Override
-//    public void deleteTest(Exam test){
-//        examDataRepository.findByFachId(test.getId());
-//    }
 
 }

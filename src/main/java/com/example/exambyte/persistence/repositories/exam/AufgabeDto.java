@@ -2,6 +2,7 @@ package com.example.exambyte.persistence.repositories.exam;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Table;
+import org.springframework.data.relational.core.mapping.Column;
 
 import java.util.UUID;
 
@@ -82,13 +83,14 @@ import java.util.UUID;
 //    public void markNotNew() { this.isNew = false; } // optional
 //}
 
-
-
 @Table("aufgabe")
 public record AufgabeDto(@Id UUID id,
-                         UUID examId,
-                         String title,
-                         Integer punkt,
-                         String type,
-                         String beschreibung) {
+                UUID examId,
+                String title,
+                Integer punkt,
+                String type,
+                String beschreibung,
+                @Column("lösung") String loesung,
+                String optionen,
+                @Column("erklärung") String erklaerung) {
 }

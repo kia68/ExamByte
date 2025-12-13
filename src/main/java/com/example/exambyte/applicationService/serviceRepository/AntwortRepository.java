@@ -7,15 +7,15 @@ import java.util.UUID;
 
 public interface AntwortRepository {
 
-
     Antwort findById(UUID id);
 
     void save(Antwort antwort);
+
     public List<Antwort> findAll();
-
-
 
     List<Antwort> findByGithubLogin(String gitHubLogin);
 
-    //    public void delete(Antwort antwort);
+    Antwort findByAufgabeIdAndGithubUser(UUID aufgabeId, String githubUser);
+
+    // public void delete(Antwort antwort);
 }

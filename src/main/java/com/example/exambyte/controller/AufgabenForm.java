@@ -8,9 +8,10 @@ public class AufgabenForm {
     private String title;
     private Integer punkt;
     private String type;
+    private String loesung;
+    private String optionen;
+    private String erklaerung;
     private String beschreibung;
-
-
 
     public String getTitle() {
         return title;
@@ -58,5 +59,29 @@ public class AufgabenForm {
 
     public void setExamId(UUID examId) {
         this.examId = examId;
+    }
+
+    public String getLoesung() {
+        return loesung;
+    }
+
+    public void setLoesung(String loesung) {
+        this.loesung = loesung;
+    }
+
+    public String getOptionen() {
+        return optionen;
+    }
+
+    public void setOptionen(String optionen) {
+        this.optionen = optionen;
+    }
+
+    public String getErklaerung() {
+        return erklaerung;
+    }
+
+    public void setErklaerung(String erklaerung) {
+        this.erklaerung = erklaerung;
     }
 }

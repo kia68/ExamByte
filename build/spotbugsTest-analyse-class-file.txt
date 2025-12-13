@@ -1,0 +1,6 @@
+/Users/kia/Downloads/Uni/ExamByte/build/classes/java/test/com/example/exambyte/ExamControllerTest.class
+/Users/kia/Downloads/Uni/ExamByte/build/classes/java/test/com/example/exambyte/ExambyteApplicationTests.class
+/Users/kia/Downloads/Uni/ExamByte/build/classes/java/test/com/example/exambyte/helper/SomeRule.class
+/Users/kia/Downloads/Uni/ExamByte/build/classes/java/test/com/example/exambyte/helper/WithOAuth2UserSecurityContextFactory.class
+/Users/kia/Downloads/Uni/ExamByte/build/classes/java/test/com/example/exambyte/helper/WithMockOAuth2User.class
+/Users/kia/Downloads/Uni/ExamByte/build/classes/java/test/com/example/exambyte/ArchUnitTest.class

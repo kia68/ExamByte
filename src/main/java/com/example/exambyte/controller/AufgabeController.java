@@ -24,7 +24,7 @@ public class AufgabeController {
     }
 
     @GetMapping("/{examId}")
-    public String showAllAufgaben(Model model,@PathVariable UUID examId) {
+    public String showAllAufgaben(Model model, @PathVariable UUID examId) {
         model.addAttribute("exam", examService.getExamById(examId));
         model.addAttribute("examId", examId);
         return "wochentest";
@@ -40,16 +40,19 @@ public class AufgabeController {
         model.addAttribute("aufgabenForm", new AufgabenForm());
         return "addAufgabe";
     }
+
     @PostMapping("/addAufgabe")
-    public String addAufgabe(@RequestParam UUID examId,@ModelAttribute AufgabenForm aufgabenForm) {
+    public String addAufgabe(@RequestParam UUID examId, @ModelAttribute AufgabenForm aufgabenForm) {
         Aufgabe aufgabe = new Aufgabe(
                 null,
                 examId,
                 aufgabenForm.getTitle(),
                 aufgabenForm.getPunkt(),
                 aufgabenForm.getType(),
-                aufgabenForm.getBeschreibung()
-        );
+                aufgabenForm.getBeschreibung(),
+                aufgabenForm.getLoesung(),
+                aufgabenForm.getOptionen(),
+                aufgabenForm.getErklaerung());
         examService.addAufgabeToExam(examId, aufgabe);
         System.out.println("Aufgabe added: " + aufgabe.getTitle());
         System.out.println("showAddAufgabeForm examID" + examId);
@@ -60,80 +63,111 @@ public class AufgabeController {
 
     @GetMapping("/{examId}/{aufgabeId}")
     public String showAufgabe(@PathVariable UUID examId,
-                              @PathVariable UUID aufgabeId, Model model){
+            @PathVariable UUID aufgabeId,
+            Model model,
+            java.security.Principal principal) {
         Aufgabe aufgabe = examService.getAufgabeById(examId, aufgabeId);
         model.addAttribute("aufgabens", aufgabe);
         model.addAttribute("examId", examId);
         model.addAttribute("aufgabeId", aufgabeId);
+
+        if (principal != null) {
+            String login;
+            if (principal instanceof OAuth2AuthenticationToken token) {
+                login = token.getPrincipal().getAttribute("login");
+            } else {
+                login = principal.getName();
+            }
+            Antwort savedAntwort = examService.getAntwortForUser(aufgabeId, login);
+            if (savedAntwort != null) {
+                model.addAttribute("savedAntwortText", savedAntwort.getAntwortText());
+                model.addAttribute("isGraded", savedAntwort.getPunkte() != null);
+                model.addAttribute("punkte", savedAntwort.getPunkte());
+                model.addAttribute("feedback", savedAntwort.getFeedback());
+            }
+        }
         return "aufgabe";
     }
 
     @PostMapping("/{examId}/{aufgabeId}/submit")
     public String submitAntwort(@PathVariable UUID examId,
-                                @PathVariable UUID aufgabeId,
-                                @RequestParam String antwortText,
-                                OAuth2AuthenticationToken auth){
-        String gitHubLogin = auth.getPrincipal().getAttribute("login");
+            @PathVariable UUID aufgabeId,
+            @RequestParam String antwortText,
+            java.security.Principal principal) {
+        String gitHubLogin;
+        if (principal instanceof OAuth2AuthenticationToken token) {
+            gitHubLogin = token.getPrincipal().getAttribute("login");
+        } else {
+            gitHubLogin = principal.getName();
+        }
 
-        Antwort antwort = new Antwort(aufgabeId, gitHubLogin, antwortText);
-        antwortService.addAntwortToAufgabe(antwort);
+        Antwort antwort = new Antwort(examId, aufgabeId, gitHubLogin, antwortText, null, null);
+        examService.submitAntwort(antwort);
         System.out.println("Antwort gespeichert: " + antwortText);
         return "redirect:/wochentest/" + examId;
     }
 
-//    @PostMapping("/{examId}/{aufgabeId}/delete")
-//    public String deleteAufgabe(@PathVariable UUID examId, @PathVariable UUID aufgabeId) {
-//        examService.deleteAufgabeById(examId, aufgabeId);
-//        System.out.println("Aufgabe gelöscht mit ID: " + aufgabeId);
-//        return "redirect:/aufgabe" + examId;
-//    }
-//
-//    // Formular zum Bearbeiten einer Aufgabe anzeigen
-//    @GetMapping("/edit/{id}")
-//    public String showEditAufgabeForm(@PathVariable UUID examId,@PathVariable UUID aufgabeId, Model model) {
-//        Aufgabe aufgabe = examService.getAufgabeById(examId,aufgabeId); // Methode im TestService implementieren
-//        model.addAttribute("aufgabe", aufgabe);
-//        return "editAufgabe"; // Thymeleaf-Template editAufgabe.html
-//    }
-//
-//    // Änderungen an einer Aufgabe speichern
-//    @PostMapping("/edit/{id}")
-//    public String editAufgabe(@PathVariable int id, AufgabenForm aufgabenForm) {
-//        Aufgabe aufgabe = testService.getAufgabeById(id); // Methode im TestService implementieren
-//        aufgabe.setTitle(aufgabenForm.getTitle());
-//        aufgabe.setPunkt(aufgabenForm.getPunkt());
-//        aufgabe.setType(aufgabenForm.getType());
-//        testService.updateAufgabe(aufgabe); // Methode im TestService implementieren
-//        return "redirect:/aufgabe";
-//    }
-//
-//    // Eine Aufgabe löschen
-//    @PostMapping("/delete/{id}")
-//    public String deleteAufgabe(@PathVariable int id) {
-//        testService.deleteAufgabeById(id); // Methode im TestService implementieren
-//        return "redirect:/aufgabe";
-//    }
-//
-//    // Formular zum Lösen einer Aufgabe anzeigen
-//    @GetMapping("/solve/{id}")
-//    public String solveAufgabe(@PathVariable int id, Model model) {
-//        Aufgabe aufgabe = testService.getAufgabeById(id); // Methode im TestService implementieren
-//        AufgabenForm aufgabenForm = new AufgabenForm(
-//                aufgabe.getTitle(),
-//                aufgabe.getPunkt(),
-//                aufgabe.getType(),
-//                aufgabe.getBeschreibung()
-//        );
-//        model.addAttribute("aufgabeForm", aufgabenForm);
-//        return "aufgabe"; // Thymeleaf-Template solveAufgabe.html
-//    }
-//
-//    // Lösung einer Aufgabe einreichen
-//    @PostMapping("/solve/{id}")
-//    public String submitSolution(@PathVariable int id, @RequestParam String antwort) {
-//        Aufgabe aufgabe = testService.getAufgabeById(id); // Methode im TestService implementieren
-//        // Hier können Sie die Logik zur Validierung oder Speicherung der Antwort implementieren
-//        System.out.println("Lösung für Aufgabe " + id + ": " + antwort);
-//        return "redirect:/aufgabe";
-//    }
+    // @PostMapping("/{examId}/{aufgabeId}/delete")
+    // public String deleteAufgabe(@PathVariable UUID examId, @PathVariable UUID
+    // aufgabeId) {
+    // examService.deleteAufgabeById(examId, aufgabeId);
+    // System.out.println("Aufgabe gelöscht mit ID: " + aufgabeId);
+    // return "redirect:/aufgabe" + examId;
+    // }
+    //
+    // // Formular zum Bearbeiten einer Aufgabe anzeigen
+    // @GetMapping("/edit/{id}")
+    // public String showEditAufgabeForm(@PathVariable UUID examId,@PathVariable
+    // UUID aufgabeId, Model model) {
+    // Aufgabe aufgabe = examService.getAufgabeById(examId,aufgabeId); // Methode im
+    // TestService implementieren
+    // model.addAttribute("aufgabe", aufgabe);
+    // return "editAufgabe"; // Thymeleaf-Template editAufgabe.html
+    // }
+    //
+    // // Änderungen an einer Aufgabe speichern
+    // @PostMapping("/edit/{id}")
+    // public String editAufgabe(@PathVariable int id, AufgabenForm aufgabenForm) {
+    // Aufgabe aufgabe = testService.getAufgabeById(id); // Methode im TestService
+    // implementieren
+    // aufgabe.setTitle(aufgabenForm.getTitle());
+    // aufgabe.setPunkt(aufgabenForm.getPunkt());
+    // aufgabe.setType(aufgabenForm.getType());
+    // testService.updateAufgabe(aufgabe); // Methode im TestService implementieren
+    // return "redirect:/aufgabe";
+    // }
+    //
+    // // Eine Aufgabe löschen
+    // @PostMapping("/delete/{id}")
+    // public String deleteAufgabe(@PathVariable int id) {
+    // testService.deleteAufgabeById(id); // Methode im TestService implementieren
+    // return "redirect:/aufgabe";
+    // }
+    //
+    // // Formular zum Lösen einer Aufgabe anzeigen
+    // @GetMapping("/solve/{id}")
+    // public String solveAufgabe(@PathVariable int id, Model model) {
+    // Aufgabe aufgabe = testService.getAufgabeById(id); // Methode im TestService
+    // implementieren
+    // AufgabenForm aufgabenForm = new AufgabenForm(
+    // aufgabe.getTitle(),
+    // aufgabe.getPunkt(),
+    // aufgabe.getType(),
+    // aufgabe.getBeschreibung()
+    // );
+    // model.addAttribute("aufgabeForm", aufgabenForm);
+    // return "aufgabe"; // Thymeleaf-Template solveAufgabe.html
+    // }
+    //
+    // // Lösung einer Aufgabe einreichen
+    // @PostMapping("/solve/{id}")
+    // public String submitSolution(@PathVariable int id, @RequestParam String
+    // antwort) {
+    // Aufgabe aufgabe = testService.getAufgabeById(id); // Methode im TestService
+    // implementieren
+    // // Hier können Sie die Logik zur Validierung oder Speicherung der Antwort
+    // implementieren
+    // System.out.println("Lösung für Aufgabe " + id + ": " + antwort);
+    // return "redirect:/aufgabe";
+    // }
 }

@@ -15,9 +15,6 @@ public class SecurityConfig {
                         .requestMatchers("/home", "/showTest", "/css/*").permitAll()
                         // .requestMatchers("/addAufgabe").hasRole("ADMIN")
                         .anyRequest().authenticated())
-                // .formLogin(Customizer.withDefaults())
-
-                // .oauth2Login(Customizer.withDefaults());
                 .oauth2Login(config -> config.userInfoEndpoint(info -> info.userService(new WebService())))
                 .formLogin(org.springframework.security.config.Customizer.withDefaults()); // Enable form login for
                                                                                            // local dev
